@@ -142,6 +142,11 @@ nmap <silent> <C-i> 10zh
 " change to directory of the opened file
 nmap <silent> <leader>cd :cd %:p:h<CR>
 
+"explorer mappings
+nnoremap <f1> :BufExplorer<cr>
+nnoremap <f2> :NERDTreeToggle<cr>
+nnoremap <f3> :TlistToggle<cr>
+
 " Quicly get out of insert mode without your finger 
 " having move home row
 "inoremap <C-space> <C-c>
@@ -158,7 +163,7 @@ colorscheme solarized
 "--- NERDTree plugin settings
 "----------------------------------
 "shortcut for nerdtreetoggle
-nmap <F2> :NERDTreeToggle <CR>
+"nmap <F2> :NERDTreeToggle <CR>
 
 "Show hidden files in nerdtree
 "let NERDTreeShowHidden=1
