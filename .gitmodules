@@ -7,9 +7,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/tcomment_vim"]
 	path = bundle/tcomment_vim
 	url = git://github.com/tomtom/tcomment_vim.git
@@ -28,3 +25,13 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = git://github.com/hasssan/snipmate-snippets.git
+
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git@github.com:hasssan/snipmate.vim.git
