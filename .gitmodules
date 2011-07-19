@@ -58,3 +58,6 @@
 	path = bundle/bufexplorer
 	url = git://github.com/vim-scripts/bufexplorer.zip.git
 	ignore = dirty
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = git://github.com/tpope/vim-markdown.git
