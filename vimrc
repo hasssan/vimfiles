@@ -69,6 +69,7 @@ set statusline+=%y\                     " Filetype
 set statusline+=%f\                     " filename
 set statusline+=%h%m%r%w                " flags
 set statusline+=[type:%{&ff}]           " file format
+set statusline+=%{fugitive#statusline()}	" for vim-fugitive statusline
 set statusline+=%=                      " align right
 set statusline+=%#error#	            " start sytastic
 set statusline+=%{SyntasticStatuslineFlag()}	" sytastic show error
