@@ -100,6 +100,9 @@ set wildmode=longest,list:longest       " Auto-completion menu
 set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
 
+" Save vim with sudo from inside
+cmap w!! w !sudo tee % >dev/null
+
 " Wipe out all buffers
 nmap <silent> ,wa :l,9000bwipeout<cr>
 
@@ -143,9 +146,9 @@ nmap <silent> <C-i> 10zh
 nmap <silent> <leader>cd :cd %:p:h<CR>
 
 "explorer mappings
-nnoremap <f1> :BufExplorer<cr>
 nnoremap <f2> :NERDTreeToggle<cr>
 nnoremap <f3> :TlistToggle<cr>
+nnoremap <f4> :BufExplorer<cr>
 
 " Quicly get out of insert mode without your finger 
 " having move home row
@@ -197,3 +200,8 @@ let g:SuperTabDefaultCompletionType = "context"
 "----------------------------------
 let g:syntastic_enable_signs=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"----------------------------------
+"--- Yankring settings
+"----------------------------------
+nnoremap <silent> <f8> :YRShow<CR>
