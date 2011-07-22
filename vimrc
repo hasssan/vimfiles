@@ -102,7 +102,7 @@ set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
 
 " Save vim with sudo from inside
-cmap w!! w !sudo tee % >dev/null
+cmap w!! w !sudo tee  > /dev/null %
 
 " Wipe out all buffers
 nmap <silent> ,wa :l,9000bwipeout<cr>
@@ -148,8 +148,8 @@ nmap <silent> <leader>cd :cd %:p:h<CR>
 
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<cr>
-nnoremap <f3> :TlistToggle<cr>
-nnoremap <f4> :BufExplorer<cr>
+nnoremap <f4> :TlistToggle<cr>
+nnoremap <f3> :BufExplorer<cr>
 
 " Quicly get out of insert mode without your finger 
 " having move home row
