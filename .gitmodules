@@ -54,7 +54,7 @@
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
 	ignore = dirty
-[submodule "bundle/snipmate"]
+[submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = git://github.com/hasssan/vim-snipmate.git
 	ignore = dirty
