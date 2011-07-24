@@ -38,14 +38,6 @@
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 	ignore = dirty
-[submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = git://github.com/hasssan/snipmate-snippets.git
-	ignore = dirty
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git@github.com:hasssan/snipmate.vim.git
-	ignore = dirty
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = git://github.com/vim-scripts/delimitMate.vim.git
@@ -61,4 +53,20 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
+	ignore = dirty
+[submodule "bundle/snipmate"]
+	path = bundle/vim-snipmate
+	url = git://github.com/hasssan/vim-snipmate.git
+	ignore = dirty
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = git://github.com/hasssan/snipmate-snippets.git
+	ignore = dirty
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+	ignore = dirty
+[submodule "bundle/tlib_vim"]
+	path = bundle/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
 	ignore = dirty

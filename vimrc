@@ -93,7 +93,14 @@ set textwidth=80
 set formatoptions=qrnl
 
 set clipboard+=unnamed                  " Add the unnamed register to the clipboard
-"set foldenable                         " Enable code folding
+
+" fold settings 
+" source http://smartic.us/2009/04/06/code-folding-in-vim/
+set foldmethod=indent 	                " fold based on indent
+set foldnestmax=10	                    " deepest fold is 10 levels
+set nofoldenable	                    " dont fold by default
+set foldlevel=1
+
 set mousehide                           " Hide Mouse when typing
 
 set wildmenu                            " More useful command-line completion
@@ -205,4 +212,4 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 "----------------------------------
 "--- Yankring settings
 "----------------------------------
-nnoremap <silent> <f8> :YRShow<CR>
+nnoremap <silent> <f1> :YRShow<CR>
