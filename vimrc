@@ -171,6 +171,17 @@ let g:solarized_termcolors=16
 colorscheme solarized
 
 "----------------------------------
+"--- switch between Relative and Absolute line number
+"----------------------------------
+function! g:ToggleNuMode()
+    if(&rnu == 1)
+        set nu
+    else
+        set rnu
+    endif
+endfunc
+nnoremap ,m :call g:ToggleNuMode()<cr>
+"----------------------------------
 "--- NERDTree plugin settings
 "----------------------------------
 "shortcut for nerdtreetoggle
