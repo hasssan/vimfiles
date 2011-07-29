@@ -115,7 +115,7 @@ cmap w!! w !sudo tee  > /dev/null %
 nmap <silent> ,wa :l,9000bwipeout<cr>
 
 " Toggle paste mode
-nmap <silent> ,p :set invpaster<CR>:set paste?<CR>
+nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
 imap <F5> <C-O><F5>
 set pastetoggle=<F5>
 
