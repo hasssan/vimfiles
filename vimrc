@@ -78,9 +78,10 @@ set statusline+=%*	                    " end syntastic
 set statusline+=%4l                     " line number
 set statusline+=/%L                     " total lines
 set statusline+=%3c%V                   " column number
+
 " Make the 'cw' and like commands put an $ at the end instead of just deleting
 " the text and replacing it
-"set cpoptions=ces$
+" set cpoptions=ces$
 
 set history=100                         " keep some stuff in the history
 
