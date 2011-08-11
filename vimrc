@@ -42,7 +42,7 @@ set scrolloff=8     " keep 4 lines off the edges of the screen when scrolling
 set virtualedit=all " allow the cursor to go in to 'invalid' places
 set wrapscan        " set the search scan to wrap lines
 set title           " set terminal title
-set visualbell      " don't beep
+set novisualbell    " don't beep
 set noerrorbells    " don't beep
 set showmatch       " set show matching parenthesis
 set incsearch       " show search matches as you type                 
