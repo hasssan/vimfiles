@@ -116,9 +116,13 @@ cmap w!! w !sudo tee  > /dev/null %
 nmap <silent> ,wa :l,9000bwipeout<cr>
 
 " Toggle paste mode
-nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
-imap <F5> <C-O><F5>
-set pastetoggle=<F5>
+" nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
+" imap <F5> <C-O><F5>
+" set pastetoggle=<F5>
+
+" Yank and Paste key to/from X clipboard
+noremap <F9> "+gP 
+noremap <C-F9> "+Y
 
 " Turn off that stupid highlight search
 nmap <silent> ,n :nohls<CR>
