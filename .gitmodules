@@ -52,3 +52,6 @@
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
+[submodule "bundle/netrw"]
+	path = bundle/netrw
+	url = git://github.com/vim-scripts/netrw.vim.git
