@@ -31,6 +31,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+set cursorline      " highlight cursorline
 set autoindent      " Autoindenting on
 set copyindent      " copy the previous indentation on auto indenting
 set showcmd         " Show command in bottom right of the screen
