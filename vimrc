@@ -1,7 +1,8 @@
 "this is for pathogen
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+call pathogen#infect()
 
 " filetype detection on
 filetype plugin indent on
@@ -69,7 +70,7 @@ set statusline+=%n\                     " buffer number
 set statusline+=%y\                     " Filetype
 set statusline+=%f\                     " filename
 set statusline+=%h%m%r%w                " flags
-set statusline+=[type:%{&ff}]           " file format
+set statusline+=[%{&ff}]              " file format
 set statusline+=%{fugitive#statusline()}	" for vim-fugitive statusline
 set statusline+=%=                      " align right
 set statusline+=%#error#	            " start sytastic
@@ -82,9 +83,14 @@ set statusline+=%3c%V                   " column number
 
 " Make the 'cw' and like commands put an $ at the end instead of just deleting
 " the text and replacing it
-" set cpoptions=ces$
+"set cpoptions=ces$
 
-set history=100                         " keep some stuff in the history
+set history=1000                         " keep some stuff in the history
+set undolevels=1000	                    " many, many, undo
+if v:version >= 730
+  set undofile	                        " keep a presistent backup file
+  set undodir=~/.vim/.undo,~/tmp,/tmp
+endif
 
 " Prefer a slightly higher line height
 set linespace=3
@@ -99,19 +105,22 @@ set clipboard+=unnamed                  " Add the unnamed register to the clipbo
 " fold settings 
 " source http://smartic.us/2009/04/06/code-folding-in-vim/
 set foldmethod=indent 	                " fold based on indent
-set foldnestmax=10	                    " deepest fold is 10 levels
-set nofoldenable	                    " dont fold by default
-set foldlevel=1
+set foldnestmax=3	                      " deepest fold is 3 levels
+set nofoldenable	                      " dont fold by default
+set foldcolumn=2                        " add fold column
 
 set mousehide                           " Hide Mouse when typing
 
 set wildmenu                            " More useful command-line completion
-set wildmode=longest,list:longest       " Auto-completion menu
+set wildmode=list:longest       " Auto-completion menu
 set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
 
 " Save vim with sudo from inside
 cmap w!! w !sudo tee  > /dev/null %
+
+" set text wrapping toggles
+nmap <silent> ,ww :set invwrap<CR>:set wrap?<CR>
 
 " Wipe out all buffers
 nmap <silent> ,wa :l,9000bwipeout<cr>
@@ -145,6 +154,9 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " change that annoying shift+; for all Vim Commands
 nnoremap ; :
+
+" quicly close the current window
+nnoremap <leader>q :q<CR>
 
 " Easier window navigation
 nmap <C-h> <C-w>h 
