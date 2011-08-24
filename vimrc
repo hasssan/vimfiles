@@ -112,7 +112,7 @@ set foldcolumn=2                        " add fold column
 set mousehide                           " Hide Mouse when typing
 
 set wildmenu                            " More useful command-line completion
-set wildmode=list:longest       " Auto-completion menu
+set wildmode=list:longest,full          " Auto-completion menu, tab selection
 set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
 
@@ -131,8 +131,8 @@ nmap <silent> ,wa :l,9000bwipeout<cr>
 " set pastetoggle=<F5>
 
 " Yank and Paste key to/from X clipboard
-noremap <F9> "+gP 
-noremap <C-F9> "+Y
+map <F9> "+gP 
+vnoremap <C-F9> "+y
 
 " Turn off that stupid highlight search
 nmap <silent> ,n :nohls<CR>
