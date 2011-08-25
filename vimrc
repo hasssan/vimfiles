@@ -27,13 +27,13 @@ set timeoutlen=500
 set hidden
 
 " all about Tab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
+set autoindent      " Autoindenting on
 
 set cursorline      " highlight cursorline
-set autoindent      " Autoindenting on
 set copyindent      " copy the previous indentation on auto indenting
 set showcmd         " Show command in bottom right of the screen
 set number          " Show lines numbers
@@ -70,7 +70,7 @@ set statusline+=%n\                     " buffer number
 set statusline+=%y\                     " Filetype
 set statusline+=%f\                     " filename
 set statusline+=%h%m%r%w                " flags
-set statusline+=[%{&ff}]              " file format
+set statusline+=[%{&ff}]                " file format
 set statusline+=%{fugitive#statusline()}	" for vim-fugitive statusline
 set statusline+=%=                      " align right
 set statusline+=%#error#	            " start sytastic
@@ -100,19 +100,22 @@ set wrap
 set textwidth=80
 set formatoptions=qrnl
 
-set clipboard+=unnamed                  " Add the unnamed register to the clipboard
+set clipboard+=unnamed                  " Add the unnamed register to 
+                                        "   the clipboard
 
 " fold settings 
 " source http://smartic.us/2009/04/06/code-folding-in-vim/
 set foldmethod=indent 	                " fold based on indent
-set foldnestmax=3	                      " deepest fold is 3 levels
-set nofoldenable	                      " dont fold by default
+set foldnestmax=3	                    " deepest fold is 3 levels
+set nofoldenable	                    " dont fold by default
 set foldcolumn=2                        " add fold column
 
 set mousehide                           " Hide Mouse when typing
 
 set wildmenu                            " More useful command-line completion
 set wildmode=list:longest,full          " Auto-completion menu, tab selection
+set wildignorecase                      " Make it easier to complete buffers, 
+                                        "     open files, etc..
 set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
 
@@ -188,6 +191,9 @@ set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
 
+" Toggle switch background light or dark
+map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 "----------------------------------
 "--- switch between Relative and Absolute line number
 "----------------------------------
@@ -198,7 +204,7 @@ function! g:ToggleNuMode()
         set rnu
     endif
 endfunc
-nnoremap ,m :call g:ToggleNuMode()<cr>
+nnoremap ,c :call g:ToggleNuMode()<cr>
 "----------------------------------
 "--- NERDTree plugin settings
 "----------------------------------
