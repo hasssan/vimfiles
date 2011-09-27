@@ -32,20 +32,21 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent      " Autoindenting on
+set copyindent      " copy the previous indentation on auto indenting
+set smarttab        " Insert tabs on the start of a line accroding to 
+                    "   shiftwidth, not tabstop
 
 set cursorline      " highlight cursorline
-set copyindent      " copy the previous indentation on auto indenting
 set showcmd         " Show command in bottom right of the screen
 set number          " Show lines numbers
 set showmode        " always show what mode we're currently editing in
-set smarttab        " Insert tabs on the start of a line accroding to 
-                    "   shiftwidth, not tabstop
 set scrolloff=8     " keep 4 lines off the edges of the screen when scrolling
 set virtualedit=all " allow the cursor to go in to 'invalid' places
 set wrapscan        " set the search scan to wrap lines
 set title           " set terminal title
 set novisualbell    " don't beep
 set noerrorbells    " don't beep
+
 set showmatch       " set show matching parenthesis
 set incsearch       " show search matches as you type                 
 set hlsearch        " Highlight searching                             
@@ -114,7 +115,7 @@ set mousehide                           " Hide Mouse when typing
 
 set wildmenu                            " More useful command-line completion
 set wildmode=list:longest,full          " Auto-completion menu, tab selection
-set wildignorecase                      " Make it easier to complete buffers, 
+"set wildignorecase                      " Make it easier to complete buffers, 
                                         "     open files, etc..
 set complete=.,w,b,t                    " Same as default
 set completeopt=longest,menu,preview
