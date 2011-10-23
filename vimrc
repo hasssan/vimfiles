@@ -97,7 +97,7 @@ endif
 set linespace=3
 
 " Better line wrapping
-set wrap
+set nowrap
 set textwidth=80
 set formatoptions=qrnl
 
