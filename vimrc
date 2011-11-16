@@ -249,3 +249,9 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 "--- Yankring settings
 "----------------------------------
 nnoremap <silent> <f1> :YRShow<CR>
+
+"----------------------------------
+"--- SnipMate
+"----------------------------------
+let g:snips_author="Hassan Aly"
+let g:snips_company="VirtueMagz"
