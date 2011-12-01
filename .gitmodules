@@ -61,3 +61,6 @@
 [submodule "bundle/prefixr"]
 	path = bundle/prefixr
 	url = git://github.com/mr-szymanski/prefixr.git
+[submodule "bundle/yankring"]
+	path = bundle/yankring
+	url = git://github.com/vim-scripts/YankRing.vim.git
