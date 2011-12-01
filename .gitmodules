@@ -55,3 +55,9 @@
 [submodule "bundle/netrw"]
 	path = bundle/netrw
 	url = git://github.com/vim-scripts/netrw.vim.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/prefixr"]
+	path = bundle/prefixr
+	url = git://github.com/mr-szymanski/prefixr.git
