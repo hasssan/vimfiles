@@ -55,6 +55,7 @@ set smartcase       " ignore case if search pattern is all lowercase,
                     "   case-sensitive otherwise                      
 set showfulltag     " when completing by tag, show the whole tag,     
                     "   not just the function name                    
+set autoread        " autoread external modification
 
 " backup is oldskool
 set nobackup
@@ -207,6 +208,11 @@ function! g:ToggleNuMode()
 endfunc
 nnoremap ,c :call g:ToggleNuMode()<cr>
 "----------------------------------
+"--- Bufkill
+"----------------------------------
+"eliminate a buffer without closing window
+nmap ,bd :BD<cr>
+"----------------------------------
 "--- NERDTree plugin settings
 "----------------------------------
 "shortcut for nerdtreetoggle
@@ -255,3 +261,10 @@ nnoremap <silent> <f1> :YRShow<CR>
 "----------------------------------
 let g:snips_author="Hassan Aly"
 let g:snips_company="VirtueMagz"
+"----------------------------------
+"--- Session
+"----------------------------------
+set sessionoptions-=options
+set sessionoptions+=resize
+let g:session_directory="~/.vimsession"
+let g:session_autoload="no"
