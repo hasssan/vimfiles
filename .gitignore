@@ -4,3 +4,4 @@ tags
 *.undo
 .VimballRecord
 .netrwhist
+bundle
