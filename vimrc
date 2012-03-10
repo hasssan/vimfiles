@@ -1,15 +1,63 @@
+" use vim default settings
+" This has to be first because it changes how some other options works. 
+set nocompatible
+
 "this is for pathogen
 filetype off
 " call pathogen#runtime_append_all_bundles()
 " call pathogen#helptags()
-call pathogen#infect()
+" call pathogen#infect()
+" call vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" filetype detection on
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" load bundle on github
+" snipmate
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'hasssan/snipmate-snippets'
+Bundle 'hasssan/vim-snipmate'
+
+" UI
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Lokaltog/vim-powerline'
+
+" command
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ervandew/supertab'
+Bundle 'bufexplorer.zip'
+Bundle 'delimitMate.vim'
+Bundle 'taglist.vim'
+Bundle 'netrw.vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'xolox/vim-session'
+Bundle 'Gist.vim'
+Bundle 'spf13/PIV'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'YankRing.vim'
+
+" language tool
+Bundle 'pangloss/vim-javascript'
+Bundle 'itspriddle/vim-jquery'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/syntastic'
+
+" load bundle non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+
+
+" filetype detection on required!
 filetype plugin indent on
-
-" use vim default settings
-" This has to be first because it changes how some other options works. 
-set nocompatible
 
 " Syntax highlight
 syntax on
