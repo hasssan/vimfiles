@@ -57,10 +57,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-haml'
 
-" load bundle non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-
-
 " filetype detection on required!
 filetype plugin indent on
 
@@ -290,11 +286,6 @@ let g:NERDTreeShowBookmarks=1
 "--- EasyMotion settings
 "----------------------------------
 let g:EasyMotion_leader_key = '<leader>m'
-
-"----------------------------------
-"--- command-T settings
-"----------------------------------
-let g:CommandTMaxHeight=10
 
 "----------------------------------
 "--- superTab settings
