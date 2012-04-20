@@ -319,6 +319,14 @@ let g:session_directory="~/.vimsession"
 let g:session_autoload="no"
 nnoremap <leader>os :OpenSession<CR>
 "----------------------------------
+"--- Ctrlp
+"----------------------------------
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+"----------------------------------
+"--- Fugitive
+"----------------------------------
+cmap gcom Gcommit -m 
+"----------------------------------
 "--- Neocomplcache
 "----------------------------------
 " Disable AutoComplPop.
