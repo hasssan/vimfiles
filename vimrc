@@ -9,41 +9,111 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Change map leader than \
+let mapleader = ","
+
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
 
-" load bundle on github
-" snipmate
+"----------------------------------
+"--- SnipMate
+"----------------------------------
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'hasssan/snipmate-snippets'
 Bundle 'hasssan/vim-snipmate'
+let g:snips_author="Hassan Aly"
+let g:snips_company="VirtueMagz"
 
+"----------------------------------
+"--- Fugitive
+"----------------------------------
+Bundle 'tpope/vim-fugitive'
+cmap gcim Gcommit -m 
+cmap gst Gstatus
+cmap gwr Gwrite
+
+"----------------------------------
+"--- Yankring settings
+"----------------------------------
+Bundle 'YankRing.vim'
+nnoremap <silent> <f1> :YRShow<CR>
+
+"----------------------------------
+"--- Ctrlp
+"----------------------------------
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+
+"----------------------------------
+"--- Syntastic settings
+"----------------------------------
+Bundle 'scrooloose/syntastic'
+let g:syntastic_enable_signs=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"----------------------------------
+"--- superTab settings
+"----------------------------------
+Bundle 'ervandew/supertab'
+"let g:SuperTabMappingForward = '<C-Space>' 
+"let g:SuperTabMappingBackward = '<S-C-Space>' 
+let g:SuperTabDefaultCompletionType = "context"
+
+"----------------------------------
+"--- Powerline
+"----------------------------------
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols='fancy'
+let g:Powerline_colorscheme='skwp'
+
+"----------------------------------
+"--- EasyMotion settings
+"----------------------------------
+Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_leader_key = '<leader>m'
+
+"----------------------------------
+"--- Bufkill
+"----------------------------------
+"eliminate a buffer without closing window
+nmap ,bd :BD<cr>
+
+"----------------------------------
+"--- NERDTree plugin settings
+"----------------------------------
+Bundle 'scrooloose/nerdtree'
+"shortcut for nerdtreetoggle
+"nmap <F2> :NERDTreeToggle <CR>
+
+"Show hidden files in nerdtree
+"let NERDTreeShowHidden=1
+
+" Show the Bookmarks        
+let g:NERDTreeShowBookmarks=1 
+
+"autoopen Nerdtree focus cursor in new document
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+
+" load bundle on github
 " UI
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Lokaltog/vim-powerline'
 
 " command
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'ervandew/supertab'
 Bundle 'bufexplorer.zip'
 Bundle 'delimitMate.vim'
 Bundle 'taglist.vim'
 Bundle 'netrw.vim'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'xolox/vim-session'
 Bundle 'Gist.vim'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'YankRing.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'matchit.zip'
 
 " language tool
@@ -54,8 +124,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'tpope/vim-markdown'
-Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-haml'
+
 
 " filetype detection on required!
 filetype plugin indent on
@@ -66,8 +136,6 @@ syntax on
 " Display current cursor posision on lover right corner.
 set ruler
 
-" Change map leader than \
-let mapleader = ","
 
 " Lower timeout leader key + command
 set timeoutlen=500
@@ -177,7 +245,7 @@ cmap w!! w !sudo tee  > /dev/null %
 nmap <silent> ,ww :set invwrap<CR>:set wrap?<CR>
 
 " Wipe out all buffers
-nmap <silent> ,wa :l,9000bwipeout<cr>
+nmap <silent> ,wba :l,9000bwipeout<cr>
 
 " Toggle paste mode
 " nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
@@ -211,6 +279,10 @@ nnoremap ; :
 
 " quicly close the current window
 nnoremap <leader>q :q<CR>
+nnoremap <leader>wq :wq<CR>
+
+" write all buffer
+nnoremap <leader>wa :wall<CR>
 
 " Easier window navigation
 nmap <C-h> <C-w>h 
@@ -257,78 +329,21 @@ function! g:ToggleNuMode()
     endif
 endfunc
 nnoremap ,c :call g:ToggleNuMode()<cr>
-"----------------------------------
-"--- Powerline
-"----------------------------------
-let g:Powerline_symbols='fancy'
-"----------------------------------
-"--- Bufkill
-"----------------------------------
-"eliminate a buffer without closing window
-nmap ,bd :BD<cr>
-"----------------------------------
-"--- NERDTree plugin settings
-"----------------------------------
-"shortcut for nerdtreetoggle
-"nmap <F2> :NERDTreeToggle <CR>
 
-"Show hidden files in nerdtree
-"let NERDTreeShowHidden=1
-
-" Show the Bookmarks        
-let g:NERDTreeShowBookmarks=1 
-
-"autoopen Nerdtree focus cursor in new document
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
-
-"----------------------------------
-"--- EasyMotion settings
-"----------------------------------
-let g:EasyMotion_leader_key = '<leader>m'
-
-"----------------------------------
-"--- superTab settings
-"----------------------------------
-"let g:SuperTabMappingForward = '<C-Space>' 
-"let g:SuperTabMappingBackward = '<S-C-Space>' 
-let g:SuperTabDefaultCompletionType = "context"
-
-"----------------------------------
-"--- Syntastic settings
-"----------------------------------
-let g:syntastic_enable_signs=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-
-"----------------------------------
-"--- Yankring settings
-"----------------------------------
-nnoremap <silent> <f1> :YRShow<CR>
-
-"----------------------------------
-"--- SnipMate
-"----------------------------------
-let g:snips_author="Hassan Aly"
-let g:snips_company="VirtueMagz"
 "----------------------------------
 "--- Session
 "----------------------------------
+Bundle 'xolox/vim-session'
 set sessionoptions-=options
 set sessionoptions+=resize
 let g:session_directory="~/.vimsession"
 let g:session_autoload="no"
 nnoremap <leader>os :OpenSession<CR>
-"----------------------------------
-"--- Ctrlp
-"----------------------------------
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-"----------------------------------
-"--- Fugitive
-"----------------------------------
-cmap gcom Gcommit -m 
+
 "----------------------------------
 "--- Neocomplcache
 "----------------------------------
+Bundle 'git://github.com/Shougo/neocomplcache.git'
 " Disable AutoComplPop.
 " let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -394,4 +409,3 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
