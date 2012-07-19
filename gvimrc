@@ -1,5 +1,5 @@
 " Change colorscheme
-set background=light
+set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
