@@ -76,10 +76,23 @@ Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>m'
 
 "----------------------------------
+"--- Buffergator
+"----------------------------------
+Bundle 'jeetsukumaran/vim-buffergator'
+let g:buffergator_viewport_split_policy = "B"
+let g:buffergator_split_size = 10
+let g:buffergator_autoexpand_on_split = 0
+
+"----------------------------------
 "--- Bufkill
 "----------------------------------
 "eliminate a buffer without closing window
 nmap ,bd :BD<cr>
+
+"----------------------------------
+"--- zencoding
+"----------------------------------
+Bundle 'mattn/zencoding-vim'
 
 "----------------------------------
 "--- NERDTree plugin settings
@@ -107,7 +120,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'bufexplorer.zip'
+" Bundle 'bufexplorer.zip'
 Bundle 'delimitMate.vim'
 Bundle 'taglist.vim'
 Bundle 'netrw.vim'
@@ -117,8 +130,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'matchit.zip'
 
 " language tool
-Bundle 'mattn/zencoding-vim'
 Bundle 'smarty.vim'
+Bundle 'beyondwords/vim-twig'
 Bundle 'spf13/PIV'
 Bundle 'pangloss/vim-javascript'
 Bundle 'itspriddle/vim-jquery'
@@ -300,8 +313,8 @@ cmap cwd lcd %:p:h
 
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<cr>
+nnoremap <f3> :BuffergatorToggle<cr>
 nnoremap <f4> :TlistToggle<cr>
-nnoremap <f3> :BufExplorer<cr>
 
 " Quicly get out of insert mode without your finger 
 " having move home row
@@ -338,7 +351,7 @@ set sessionoptions-=options
 set sessionoptions+=resize
 let g:session_directory="~/.vimsession"
 let g:session_autoload="no"
-nnoremap <leader>os :OpenSession<CR>
+nnoremap <leader>ef :OpenSession<CR>
 
 "----------------------------------
 "--- Neocomplcache
@@ -380,7 +393,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
+" inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " AutoComplPop like behavior.
