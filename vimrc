@@ -249,7 +249,7 @@ set wildmode=list:longest,full          " Auto-completion menu, tab selection
 "set wildignorecase                      " Make it easier to complete buffers, 
                                         "     open files, etc..
 set complete=.,w,b,t                    " Same as default
-set completeopt=longest,menu,preview
+" set completeopt=longest,menu,preview
 
 " Save vim with sudo from inside
 cmap w!! w !sudo tee  > /dev/null %
@@ -334,14 +334,20 @@ map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 "----------------------------------
 "--- switch between Relative and Absolute line number
 "----------------------------------
-function! g:ToggleNuMode()
-    if(&rnu == 1)
-        set nu
-    else
-        set rnu
-    endif
-endfunc
-nnoremap ,c :call g:ToggleNuMode()<cr>
+"function! g:ToggleNuMode()
+    "if(&rnu == 1)
+        "set nu
+    "else
+        "set rnu
+    "endif
+"endfunc
+"nnoremap ,c :call g:ToggleNuMode()<cr>
+
+"----------------------------------
+"--- NERDCommenter
+"----------------------------------
+map <leader>/ <Plug>NERDCommenterToggle
+imap <C-/> <Esc><Plug>NERDCommenterToggle<CR>i
 
 "----------------------------------
 "--- Session
@@ -378,8 +384,8 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
@@ -414,3 +420,5 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 " let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 " let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+"Bundle 'Shougo/neosnippet.git'
