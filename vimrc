@@ -53,6 +53,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_phpcs_disable=1
+let g:syntastic_phpmd_disable=1
 
 "----------------------------------
 "--- superTab settings
@@ -125,20 +127,25 @@ Bundle 'delimitMate.vim'
 Bundle 'taglist.vim'
 Bundle 'netrw.vim'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'Gist.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'matchit.zip'
 
 " language tool
 Bundle 'smarty.vim'
 Bundle 'beyondwords/vim-twig'
-Bundle 'spf13/PIV'
 Bundle 'pangloss/vim-javascript'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
 
+Bundle 'mattn/gist-vim'
+let g:gist_detect_filetype=1
+
+Bundle 'spf13/PIV'
+let g:DisableAutoPHPFolding = 1 
+
+Bundle 'einars/vim-phpfold'
 
 " filetype detection on required!
 filetype plugin indent on
@@ -329,7 +336,7 @@ let g:solarized_termcolors=16
 colorscheme solarized
 
 " Toggle switch background light or dark
-map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 "----------------------------------
 "--- switch between Relative and Absolute line number
