@@ -19,6 +19,7 @@
 " }
 
 " Bundles {
+" List all Bundle
     " Let Vundle manage it self {
         Bundle 'gmarik/vundle'
     " }
@@ -106,8 +107,8 @@
     " }
 
     " PIV {
-        Bundle 'spf13/PIV'
-        let g:DisableAutoPHPFolding = 1 
+        "Bundle 'spf13/PIV'
+        "let g:DisableAutoPHPFolding = 1 
     " }
 
     " command
@@ -131,6 +132,10 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
+
+    Bundle 'mileszs/ack.vim'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'godlygeek/tabular'
 " }
 
 " General {
@@ -354,12 +359,12 @@
 " Neocomplcache {
     Bundle 'git://github.com/Shougo/neocomplcache.git'
     " Disable AutoComplPop.
-    " let g:acp_enableAtStartup = 0
+     let g:acp_enableAtStartup = 0
     let g:neocomplcache_enable_at_startup = 1
     let g:neocomplcache_enable_smart_case = 1
     let g:neocomplcache_enable_camel_case_completion = 1
     let g:neocomplcache_enable_underbar_completion = 1
-    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_min_syntax_length = 5
     let g:neocomplcache_max_list = 15
     let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
     let g:neocomplcache_enable_auto_select = 1
