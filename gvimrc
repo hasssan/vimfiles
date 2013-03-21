@@ -1,10 +1,10 @@
 " Change colorscheme
-set background=light
-let g:solarized_termcolors=256
+set background=dark
+" let g:solarized_termcolors=256
 colorscheme solarized
 
 " set font
-set guifont=Inconsolata\ Medium\ 14
+set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
 " remove visual bell that cause flickering on motion
 set vb t_vb=
 
