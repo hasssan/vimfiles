@@ -4,7 +4,7 @@ set background=dark
 colorscheme solarized
 
 " set font
-set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+set guifont=Inconsolata\ for\ Powerline\ Medium\ 14
 " remove visual bell that cause flickering on motion
 set vb t_vb=
 
