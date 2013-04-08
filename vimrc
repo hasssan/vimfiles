@@ -1,214 +1,143 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
-" This has to be first because it changes how some other options works. 
-" not vi | filetype detection on Required! | syntax highlight
-set nocompatible | filetype indent plugin on | syn on
+" My Vim Configuration
+" Environment {
+    " use vim default settings
+    " This has to be first because it changes how some other options works. 
+    set nocompatible
 
-" VAM Config {
-fun! EnsureVamIsOnDisk(plugin_root_dir)
-  " windows users may want to use http://mawercer.de/~marc/vam/index.php
-  " to fetch VAM, VAM-known-repositories and the listed plugins
-  " without having to install curl, 7-zip and git tools first
-  " -> BUG [4] (git-less installation)
-  let vam_autoload_dir = a:plugin_root_dir.'/vim-addon-manager/autoload'
-  if isdirectory(vam_autoload_dir)
-    return 1
-  else
-    if 1 == confirm("Clone VAM into ".a:plugin_root_dir."?","&Y\n&N")
-      " I'm sorry having to add this reminder. Eventually it'll pay off.
-      call confirm("Remind yourself that most plugins ship with ".
-                  \"documentation (README*, doc/*.txt). It is your ".
-                  \"first source of knowledge. If you can't find ".
-                  \"the info you're looking for in reasonable ".
-                  \"time ask maintainers to improve documentation")
-      call mkdir(a:plugin_root_dir, 'p')
-      execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '.
-                  \ shellescape(a:plugin_root_dir, 1).'/vim-addon-manager'
-      " VAM runs helptags automatically when you install or update
-      " plugins
-      exec 'helptags '.fnameescape(a:plugin_root_dir.'/vim-addon-manager/doc')
-    endif
-    return isdirectory(vam_autoload_dir)
-  endif
-endfun
+    "this is for vundle
+    filetype off
 
-fun! SetupVAM()
-  " Set advanced options like this:
-    let g:vim_addon_manager = {}
-    let g:vim_addon_manager['plugin_sources'] = {}
-    let g:vim_addon_manager['plugin_sources']['ultisnipsmarc'] = {'type': 'git', 'url': 'git://github.com/MarcWeber/ultisnips.git' }
-
-  " VAM install location:
-  let c = get(g:, 'vim_addon_manager', {})
-  let g:vim_addon_manager = c
-  let c.plugin_root_dir = expand('$HOME/.vim/vim-addons')
-  if !EnsureVamIsOnDisk(c.plugin_root_dir)
-    echohl ErrorMsg | echomsg "No VAM found!" | echohl NONE
-    return
-  endif
-  let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
-
-  " Tell VAM which plugins to fetch & load:
-  call vam#ActivateAddons([ 
-        \ "Solarized",
-  		\ "fugitive",
-  		\ "YankRing",
-  		\ "ctrlp",
-  		\ "Syntastic",
-  		\ "powerline",
-  		\ "EasyMotion",
-  		\ "Buffergator",
-  		\ "ZenCoding",
-  		\ "The_NERD_tree",
-  		\ "Gist",
-  		\ "git.zip",
-  		\ "surround",
-  		\ "delimitMate",
-  		\ "taglist",
-  		\ "netrw",
-  		\ "unimpaired",
-  		\ "tComment",
-  		\ "matchit.zip",
-  		\ "Indent_Guides",
-  		\ "smarty",
-  		\ "vim-twig",
-  		\ "vim-javascript",
-  		\ "Better_CSS_Syntax_for_Vim",
-  		\ "markdown@tpope",
-  		\ "haml.zip",
-  		\ "ack",
-  		\ "Tagbar",
-  		\ "Tabular",
-  		\ "session%3150",
-  		\ "neocomplcache",
-  		\ "ultisnipsmarc",
-  		\ "snipmate-snippets",
-  		\ ], 
-		\ {'auto_install' : 0})
-
-endfun
-call SetupVAM()
+    " start Vundle {
+        set rtp+=~/.vim/bundle/vundle/
+        call vundle#rc()
+    " }
+    
+    " Map Leader {
+        let mapleader = ","
+    " }
 " }
 
-" Map Leader {
-let mapleader = ","
-" }
+" Bundles {
+" List all Bundle
+    " Let Vundle manage it self {
+        Bundle 'gmarik/vundle'
+    " }
 
-" Addons Config {
-"     " SnipMate {
-"         Bundle 'tomtom/tlib_vim'
-"         Bundle 'MarcWeber/vim-addon-mw-utils'
-"         Bundle 'hasssan/snipmate-snippets'
-"         Bundle 'hasssan/vim-snipmate'
-"         let g:snips_author="Hassan Aly"
-"         let g:snips_company="VirtueMagz"
-"     " }
-" 
-" Fugitive {
-    " Bundle 'tpope/vim-fugitive'
-    cmap gcim Gcommit -m 
-    cmap gst Gstatus
-    cmap gwr Gwrite
+    " utilsnips {
+        Bundle 'tomtom/tlib_vim'
+        Bundle 'MarcWeber/ultisnips'
+        Bundle 'honza/vim-snippets'
+    " }
+
+    " Fugitive {
+        Bundle 'tpope/vim-fugitive'
+        cmap gcim Gcommit -m 
+        cmap gst Gstatus
+        cmap gwr Gwrite
+    " }
+
+    " Yankring {
+        Bundle 'YankRing.vim'
+        nnoremap <silent> <f1> :YRShow<CR>
+    " }
+
+    " Ctrlp {
+        Bundle 'kien/ctrlp.vim'
+        let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+    " }
+
+    " Syntastic {
+        Bundle 'scrooloose/syntastic'
+        let g:syntastic_enable_signs=1
+        let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+        let g:syntastic_php_checkers=['php']
+    " }
+
+    " superTab {
+        " Bundle 'ervandew/supertab'
+        "let g:SuperTabMappingForward = '<C-Space>' 
+        "let g:SuperTabMappingBackward = '<S-C-Space>' 
+        "let g:SuperTabDefaultCompletionType = 'context'
+    " }
+
+    " Powerline {
+        Bundle 'Lokaltog/vim-powerline'
+        let g:Powerline_symbols='fancy'
+        let g:Powerline_colorscheme='skwp'
+    " }
+
+    " EasyMotion {
+        Bundle 'Lokaltog/vim-easymotion'
+        let g:EasyMotion_leader_key = '<leader>m'
+    " }
+
+    " Buffergator {
+        Bundle 'jeetsukumaran/vim-buffergator'
+        let g:buffergator_viewport_split_policy = "B"
+        let g:buffergator_split_size = 10
+        let g:buffergator_autoexpand_on_split = 0
+    " }
+
+    " zencoding {
+        Bundle 'mattn/zencoding-vim'
+    " }
+
+    " NERDTree {
+        Bundle 'scrooloose/nerdtree'
+        "shortcut for nerdtreetoggle
+        "nmap <F2> :NERDTreeToggle <CR>
+        "Show hidden files in nerdtree
+        "let NERDTreeShowHidden=1
+        " Show the Bookmarks        
+        let g:NERDTreeShowBookmarks=1 
+
+        "autoopen Nerdtree focus cursor in new document
+        "autocmd VimEnter * NERDTree
+        "autocmd VimEnter * wincmd p
+    " }
+
+    " Gist Vim {
+        Bundle 'mattn/gist-vim'
+        let g:gist_detect_filetype=1
+    " }
+
+    " PIV {
+        "Bundle 'spf13/PIV'
+        "let g:DisableAutoPHPFolding = 1 
+    " }
+
+    " command
+    Bundle 'tpope/vim-git'
+    Bundle 'tpope/vim-surround'
+    Bundle 'delimitMate.vim'
+    Bundle 'taglist.vim'
+    Bundle 'netrw.vim'
+    Bundle 'tpope/vim-unimpaired'
+    Bundle 'tomtom/tcomment_vim'
+    Bundle 'matchit.zip'
+    " Bundle 'bufexplorer.zip'
+
+    " language tool
+    Bundle 'nathanaelkane/vim-indent-guides'
+    Bundle 'smarty.vim'
+    Bundle 'beyondwords/vim-twig'
+    Bundle 'pangloss/vim-javascript'
+    Bundle 'itspriddle/vim-jquery'
+    Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+    Bundle 'tpope/vim-markdown'
+    Bundle 'tpope/vim-haml'
+    Bundle 'einars/vim-phpfold'
+
+    Bundle 'mileszs/ack.vim'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'godlygeek/tabular'
 " }
- 
-" Yankring {
-    "Bundle 'YankRing.vim'
-    nnoremap <silent> <f1> :YRShow<CR>
-" }
-" 
-"     " Ctrlp {
-"         Bundle 'kien/ctrlp.vim'
-"         let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-"     " }
-" 
-"     " Syntastic {
-"         Bundle 'scrooloose/syntastic'
-"         let g:syntastic_enable_signs=1
-"         let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-"         let g:syntastic_phpcs_disable=1
-"         let g:syntastic_phpmd_disable=1
-"     " }
-" 
-"     " superTab {
-"         " Bundle 'ervandew/supertab'
-"         "let g:SuperTabMappingForward = '<C-Space>' 
-"         "let g:SuperTabMappingBackward = '<S-C-Space>' 
-"         "let g:SuperTabDefaultCompletionType = 'context'
-"     " }
-" 
-"     " Powerline {
-"         Bundle 'Lokaltog/vim-powerline'
-"         let g:Powerline_symbols='fancy'
-"         let g:Powerline_colorscheme='skwp'
-"     " }
-" 
-"     " EasyMotion {
-"         Bundle 'Lokaltog/vim-easymotion'
-"         let g:EasyMotion_leader_key = '<leader>m'
-"     " }
-" 
-"     " Buffergator {
-"         Bundle 'jeetsukumaran/vim-buffergator'
-"         let g:buffergator_viewport_split_policy = "B"
-"         let g:buffergator_split_size = 10
-"         let g:buffergator_autoexpand_on_split = 0
-"     " }
-" 
-"     " zencoding {
-"         Bundle 'mattn/zencoding-vim'
-"     " }
-" 
-"     " NERDTree {
-"         Bundle 'scrooloose/nerdtree'
-"         "shortcut for nerdtreetoggle
-"         "nmap <F2> :NERDTreeToggle <CR>
-"         "Show hidden files in nerdtree
-"         "let NERDTreeShowHidden=1
-"         " Show the Bookmarks        
-"         let g:NERDTreeShowBookmarks=1 
-" 
-"         "autoopen Nerdtree focus cursor in new document
-"         "autocmd VimEnter * NERDTree
-"         "autocmd VimEnter * wincmd p
-"     " }
-" 
-"     " Gist Vim {
-"         Bundle 'mattn/gist-vim'
-"         let g:gist_detect_filetype=1
-"     " }
-" 
-"     " PIV {
-"         "Bundle 'spf13/PIV'
-"         "let g:DisableAutoPHPFolding = 1 
-"     " }
-" 
-"     " command
-"     Bundle 'tpope/vim-git'
-"     Bundle 'tpope/vim-surround'
-"     Bundle 'delimitMate.vim'
-"     Bundle 'taglist.vim'
-"     Bundle 'netrw.vim'
-"     Bundle 'tpope/vim-unimpaired'
-"     Bundle 'tomtom/tcomment_vim'
-"     Bundle 'matchit.zip'
-"     " Bundle 'bufexplorer.zip'
-" 
-"     " language tool
-"     Bundle 'nathanaelkane/vim-indent-guides'
-"     Bundle 'smarty.vim'
-"     Bundle 'beyondwords/vim-twig'
-"     Bundle 'pangloss/vim-javascript'
-"     Bundle 'itspriddle/vim-jquery'
-"     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-"     Bundle 'tpope/vim-markdown'
-"     Bundle 'tpope/vim-haml'
-"     Bundle 'einars/vim-phpfold'
-" 
-"     Bundle 'mileszs/ack.vim'
-"     Bundle 'majutsushi/tagbar'
-"     Bundle 'godlygeek/tabular'
-" " }
 
 " General {
+    
+    filetype plugin indent on       " filetype detection on Required!
+    syntax on                       " Syntax highlight
 
     " Visual and Motion {
         set ruler           " Display current cursor position on lower right corner
@@ -280,12 +209,12 @@ let mapleader = ","
         set statusline+=%f\                     " filename
         set statusline+=%h%m%r%w                " flags
         set statusline+=[%{&ff}]                " file format
-        set statusline+=%{fugitive#statusline()}	" for vim-fugitive statusline
+        set statusline+=%{fugitive#statusline()}  " for vim-fugitive statusline
         set statusline+=%=                      " align right
-        set statusline+=%#error#	            " start sytastic
-        set statusline+=%{SyntasticStatuslineFlag()}	" sytastic show error
-        set statusline+=%*	                    " end syntastic
-        "set statusline+=%{strftime(\"%c\",getftime(expand(\"%:p\")))}	"modified time
+        set statusline+=%#error#              " start sytastic
+        set statusline+=%{SyntasticStatuslineFlag()}  " sytastic show error
+        set statusline+=%*                      " end syntastic
+        "set statusline+=%{strftime(\"%c\",getftime(expand(\"%:p\")))}  "modified time
         set statusline+=%4l                     " line number
         set statusline+=/%L                     " total lines
         set statusline+=%3c%V                   " column number
@@ -293,9 +222,9 @@ let mapleader = ","
 
     " History {
         set history=1000                         " keep some stuff in the history
-        set undolevels=1000	                    " many, many, undo
+        set undolevels=1000                     " many, many, undo
         if v:version >= 730
-          set undofile	                        " keep a presistent backup file
+          set undofile                          " keep a presistent backup file
           set undodir=~/.vim/.undo,~/tmp,/tmp
         endif
     " }
@@ -309,8 +238,8 @@ let mapleader = ","
     " fold settings {
         " source http://smartic.us/2009/04/06/code-folding-in-vim/
         " set foldmethod=marker                 " fold based on indent
-        " set foldnestmax=3	                    " deepest fold is 3 levels
-        " set nofoldenable	                    " dont fold by default
+        " set foldnestmax=3                     " deepest fold is 3 levels
+        " set nofoldenable                      " dont fold by default
         " set foldcolumn=2                      " add fold column
     " }
 
@@ -383,38 +312,61 @@ let mapleader = ","
     nnoremap <f4> :TlistToggle<cr>
 " }
 
- " Solarized Color {
-     " Set 256 color
-     set t_Co=256
- 
-     " setting for colorscheme
-     set background=dark
-     let g:solarized_termcolors=16
-     colorscheme solarized
- 
-     " Toggle switch background light or dark
-     map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
- " }
+" Custom Functions {
 
-" " Switch between Relative and Absolute line number {
-"     "function! g:ToggleNuMode()
-"         "if(&rnu == 1)
-"             "set nu
-"         "else
-"             "set rnu
-"         "endif
-"     "endfunc
-"     "nnoremap ,c :call g:ToggleNuMode()<cr>
-" " }
- 
-" " NERDCommenter {
-"     Bundle 'scrooloose/nerdcommenter'
-"     map <leader>/ <Plug>NERDCommenterToggle
-"     imap <C-/> <Esc><Plug>NERDCommenterToggle<CR>i
-" " }
- 
+" SetWrap For Markdown {
+    function! SetWrap()
+      setlocal wrap linebreak nolist
+      set virtualedit=
+      setlocal display+=lastline
+      noremap  <buffer> <silent> k gk
+      noremap  <buffer> <silent> j gj
+      noremap  <buffer> <silent> <Home> g<Home>
+      noremap  <buffer> <silent> <End>  g<End>
+      inoremap <buffer> <silent> <Up>   <C-o>gk
+      inoremap <buffer> <silent> <Down> <C-o>gj
+      inoremap <buffer> <silent> <Home> <C-o>g<Home>
+      inoremap <buffer> <silent> <End>  <C-o>g<End>
+    endfunction
+
+    au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
+"}
+
+"}
+
+" Solarized Color {
+    Bundle 'altercation/vim-colors-solarized'
+    " Set 256 color
+    set t_Co=256
+
+    " setting for colorscheme
+    set background=dark
+    let g:solarized_termcolors=16
+    colorscheme solarized
+
+    " Toggle switch background light or dark
+    map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+" }
+
+" Switch between Relative and Absolute line number {
+    "function! g:ToggleNuMode()
+        "if(&rnu == 1)
+            "set nu
+        "else
+            "set rnu
+        "endif
+    "endfunc
+    "nnoremap ,c :call g:ToggleNuMode()<cr>
+" }
+
+" NERDCommenter {
+    Bundle 'scrooloose/nerdcommenter'
+    map <leader>/ <Plug>NERDCommenterToggle
+    imap <C-/> <Esc><Plug>NERDCommenterToggle<CR>i
+" }
+
 " Session Manager {
-"     Bundle 'xolox/vim-session'
+    Bundle 'xolox/vim-session'
     set sessionoptions-=options
     set sessionoptions+=resize
     let g:session_directory="~/.vimsession"
@@ -423,8 +375,8 @@ let mapleader = ","
 " }
 
 " Neocomplcache {
-"    Bundle 'git://github.com/Shougo/neocomplcache.git'
-" Disable AutoComplPop.
+    Bundle 'git://github.com/Shougo/neocomplcache.git'
+    " Disable AutoComplPop.
      let g:acp_enableAtStartup = 0
     let g:neocomplcache_enable_at_startup = 1
     let g:neocomplcache_enable_smart_case = 1
@@ -435,17 +387,17 @@ let mapleader = ","
     let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
     let g:neocomplcache_enable_auto_select = 1
 
-" Define keyword.
+    " Define keyword.
     if !exists('g:neocomplcache_keyword_patterns')
       let g:neocomplcache_keyword_patterns = {}
     endif
     let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-"imap <C-k> <Plug>(neocomplcache_snippets_expand)
-"smap <C-k> <Plug>(neocomplcache_snippets_expand)
-    inoremap <expr><C-g> neocomplcache#undo_completion()
-    inoremap <expr><C-l> neocomplcache#complete_common_string()
+    " Plugin key-mappings.
+    "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+    "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+    inoremap <expr><C-g>     neocomplcache#undo_completion()
+    inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
     inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
     function! s:check_back_space()"{{{
@@ -453,23 +405,23 @@ let mapleader = ","
         return !col || getline('.')[col - 1] =~ '\s'
     endfunction"}}
 
-" <C-h>, <BS>: close popup and delete backword char.
+    " <C-h>, <BS>: close popup and delete backword char.
     inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
     inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y> neocomplcache#close_popup()
-    inoremap <expr><C-e> neocomplcache#cancel_popup()
+    " inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
+    " AutoComplPop like behavior.
+    "let g:neocomplcache_enable_auto_select = 1
 
-" Enable omni completion.
+    " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
+    " Enable heavy omni completion.
     if !exists('g:neocomplcache_omni_patterns')
         let g:neocomplcache_omni_patterns = {}
     endif
@@ -479,10 +431,10 @@ let mapleader = ","
     let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
-" use honza's snippets
+    " use honza's snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
-" For snippet_complete marker.
+    " For snippet_complete marker.
     if has('conceal')
         set conceallevel=2 concealcursor=i
     endif
