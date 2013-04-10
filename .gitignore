@@ -6,3 +6,4 @@ tags
 .netrwhist
 bundle/*
 vim-addons/*
+local.setting

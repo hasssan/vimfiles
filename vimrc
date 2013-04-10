@@ -439,3 +439,8 @@
         set conceallevel=2 concealcursor=i
     endif
 " }
+
+
+    " Private source {
+        source ~/.vim/local.setting
+    " }
