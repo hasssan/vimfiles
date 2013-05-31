@@ -132,6 +132,7 @@
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'godlygeek/tabular'
+    Bundle 'gregsexton/gitv'
 " }
 
 " General {
@@ -310,6 +311,10 @@
     nnoremap <f2> :NERDTreeToggle<cr>
     nnoremap <f3> :BuffergatorToggle<cr>
     nnoremap <f4> :TlistToggle<cr>
+
+    " easier moving blocks of code
+    vnoremap < <gv
+    vnoremap > >gv
 " }
 
 " Custom Functions {
@@ -366,6 +371,8 @@
 " }
 
 " Session Manager {
+    " load Session Manager Dependencies"
+    Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-session'
     set sessionoptions-=options
     set sessionoptions+=resize
