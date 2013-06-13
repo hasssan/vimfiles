@@ -26,8 +26,13 @@
 
     " utilsnips {
         Bundle 'tomtom/tlib_vim'
-        Bundle 'MarcWeber/ultisnips'
+        Bundle 'marcweber/ultisnips'
         Bundle 'honza/vim-snippets'
+        " Bundle 'SirVer/ultisnips'
+
+        let g:ultisnipsexpandtrigger="<c-tab>"
+        let g:ultisnipsjumpforwardtrigger="<c-j>"
+        let g:ultisnipsjumpbackwardtrigger="<c-k>"
     " }
 
     " Fugitive {
@@ -107,6 +112,7 @@
         "let g:DisableAutoPHPFolding = 1 
     " }
 
+    Bundle 'Valloric/YouCompleteMe'
     " command
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-surround'
@@ -378,76 +384,10 @@
     set sessionoptions+=resize
     let g:session_directory="~/.vimsession"
     let g:session_autoload="no"
+    let g:session_autosave="no"
     nnoremap <leader>ef :OpenSession<CR>
 " }
 
-" Neocomplcache {
-    Bundle 'git://github.com/Shougo/neocomplcache.git'
-    " Disable AutoComplPop.
-     let g:acp_enableAtStartup = 0
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
-    let g:neocomplcache_min_syntax_length = 5
-    let g:neocomplcache_max_list = 15
-    let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-    let g:neocomplcache_enable_auto_select = 1
-
-    " Define keyword.
-    if !exists('g:neocomplcache_keyword_patterns')
-      let g:neocomplcache_keyword_patterns = {}
-    endif
-    let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-    " Plugin key-mappings.
-    "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-    "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-    inoremap <expr><C-g>     neocomplcache#undo_completion()
-    inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-    inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
-    function! s:check_back_space()"{{{
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1] =~ '\s'
-    endfunction"}}
-
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-    " inoremap <expr><C-y>  neocomplcache#close_popup()
-    inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-    " AutoComplPop like behavior.
-    "let g:neocomplcache_enable_auto_select = 1
-
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplcache_omni_patterns')
-        let g:neocomplcache_omni_patterns = {}
-    endif
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-    " use honza's snippets
-    let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
-
-    " For snippet_complete marker.
-    if has('conceal')
-        set conceallevel=2 concealcursor=i
-    endif
+" Private source {
+    source ~/.vim/local.setting
 " }
-
-
-    " Private source {
-        source ~/.vim/local.setting
-    " }
