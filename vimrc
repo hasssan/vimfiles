@@ -87,8 +87,8 @@
         let g:buffergator_autoexpand_on_split = 0
     " }
 
-    " zencoding {
-        Bundle 'mattn/zencoding-vim'
+    " emmet {
+        Bundle 'mattn/emmet-vim'
     " }
 
     " NERDTree {
@@ -330,22 +330,24 @@
 " Custom Functions {
 
 " SetWrap For Markdown {
-    function! SetWrap()
-      setlocal wrap linebreak nolist
-      set virtualedit=
-      setlocal display+=lastline
-      noremap  <buffer> <silent> k gk
-      noremap  <buffer> <silent> j gj
-      noremap  <buffer> <silent> <Home> g<Home>
-      noremap  <buffer> <silent> <End>  g<End>
-      inoremap <buffer> <silent> <Up>   <C-o>gk
-      inoremap <buffer> <silent> <Down> <C-o>gj
-      inoremap <buffer> <silent> <Home> <C-o>g<Home>
-      inoremap <buffer> <silent> <End>  <C-o>g<End>
-    endfunction
+    " function! SetWrap()
+    "   setlocal wrap linebreak nolist
+    "   set virtualedit=
+    "   setlocal display+=lastline
+    "   noremap  <buffer> <silent> k gk
+    "   noremap  <buffer> <silent> j gj
+    "   noremap  <buffer> <silent> <Home> g<Home>
+    "   noremap  <buffer> <silent> <End>  g<End>
+    "   inoremap <buffer> <silent> <Up>   <C-o>gk
+    "   inoremap <buffer> <silent> <Down> <C-o>gj
+    "   inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    "   inoremap <buffer> <silent> <End>  <C-o>g<End>
+    " endfunction
 
-    au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
+    " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
 "}
+
+    au BufNewFile,BufRead *.lex setlocal filetype=html
 
 "}
 
