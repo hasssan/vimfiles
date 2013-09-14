@@ -30,10 +30,14 @@
         " Bundle 'SirVer/ultisnips'
         Bundle 'honza/vim-snippets'
 
-        let g:ultisnipsexpandtrigger="<c-tab>"
-        let g:ultisnipsjumpforwardtrigger="<c-j>"
-        let g:ultisnipsjumpbackwardtrigger="<c-k>"
+        " let g:ultisnipsexpandtrigger="<c-tab>"
+        " let g:ultisnipsjumpforwardtrigger="<c-j>"
+        " let g:ultisnipsjumpbackwardtrigger="<c-k>"
+
         let g:UltiSnips = {}
+        let g:UltiSnips.ExpandTrigger="<c-tab>"
+        let g:UltiSnips.JumpForwardTrigger="<c-j>"
+        let g:UltiSnips.JumpBackwardTrigger="<c-k>"
         let g:UltiSnips.always_use_first_snippet = 1    
         let g:snips_author = "Hassan Aly"
     " }
@@ -143,6 +147,7 @@
     Bundle 'majutsushi/tagbar'
     Bundle 'godlygeek/tabular'
     Bundle 'gregsexton/gitv'
+    Bundle 'sjl/gundo.vim'
 " }
 
 " General {
