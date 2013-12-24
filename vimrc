@@ -35,10 +35,13 @@
         " let g:ultisnipsjumpbackwardtrigger="<c-k>"
 
         let g:UltiSnips = {}
+        let g:UltiSnips.UltiSnips_ft_filter = {
+                \ 'default' : {'filetypes': ['FILETYPE'] },
+                \ }
         let g:UltiSnips.ExpandTrigger="<c-tab>"
         let g:UltiSnips.JumpForwardTrigger="<c-j>"
         let g:UltiSnips.JumpBackwardTrigger="<c-k>"
-        let g:UltiSnips.always_use_first_snippet = 1    
+        " let g:UltiSnips.always_use_first_snippet = 1    
         let g:snips_author = "Hassan Aly"
     " }
 
@@ -116,7 +119,7 @@
 
     " PIV {
         "Bundle 'spf13/PIV'
-        "let g:DisableAutoPHPFolding = 1 
+        " let g:DisableAutoPHPFolding = 1 "{"}
     " }
 
     Bundle 'Valloric/YouCompleteMe'
@@ -134,7 +137,7 @@
     " language tool
     Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'smarty.vim'
-    Bundle 'beyondwords/vim-twig'
+    " Bundle 'beyondwords/vim-twig'
     Bundle 'pangloss/vim-javascript'
     Bundle 'itspriddle/vim-jquery'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -325,7 +328,7 @@
     "explorer mappings
     nnoremap <f2> :NERDTreeToggle<cr>
     nnoremap <f3> :BuffergatorToggle<cr>
-    nnoremap <f4> :TlistToggle<cr>
+    nnoremap <f4> :TagbarToggle<cr>
 
     " easier moving blocks of code
     vnoremap < <gv
