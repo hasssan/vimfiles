@@ -2,11 +2,31 @@ snippet phpil "php open tag in line"
 <?php ${1} ?>
 endsnippet
 
+# for easier debugging
 snippet ptd "print to die"
 echo "<pre>";
 print_r(${1});
 echo "</pre>";
 die();
+endsnippet
+
+snippet for "for"
+for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+	${4:// code...}
+}
+endsnippet
+
+snippet fore "Foreach loop"
+foreach ($${1:variable} as $${3:value}){
+    ${VISUAL}${4}
+}
+$0
+endsnippet
+
+snippet foreachk "foreach loop key => value"
+foreach ($${1:variable} as $${2:key} => $${3:value}){
+	${4:// code...}
+}
 endsnippet
 
 snippet doc_c "doc class"
