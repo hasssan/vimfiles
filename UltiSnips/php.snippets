@@ -1,3 +1,66 @@
-snippet phpol "php open tag one line" 
+snippet phpil "php open tag in line" 
 <?php ${1} ?>
 endsnippet
+
+snippet ptd "print to die"
+echo "<pre>";
+print_r(${1});
+echo "</pre>";
+die();
+endsnippet
+
+snippet doc_c "doc class"
+/**
+ * ${3:undocumented class}
+ *
+ * @package    ${4:default}
+ * @subpackage ${5:default}
+ * @author     ${6:`whoami`}
+ */
+${1}class ${2}
+{
+    ${0}
+} // END $1class $2
+endsnippet
+
+snippet doc_f "doc function" b
+/**
+ * $2
+ * @return ${4:void}
+ * ${5:@author `whoami`}
+ **/
+${1:public }function ${2:someFunc}(${3})
+{${6}
+}
+endsnippet
+
+snippet doc_h "document header" b
+/**
+ * $1
+ *
+ * @author    ${2:`whoami`}
+ * @version   ${3:$Id$}
+ * @copyright ${4:$2}, `strftime('%d %B, %Y')`
+ * @package   ${0:default}
+ */
+endsnippet
+
+snippet doc_i "doc interface" b
+/**
+ * $1
+ * @package ${2:default}
+ * @author  ${3:`whoami`}
+ **/
+interface ${1:someClass}
+{${4}
+} // END interface $1"
+endsnippet
+
+snippet doc_v "doc variable" b
+/**
+ * ${3:undocumented class variable}
+ * @var ${4:string}
+ */
+${1:var} $${2};
+endsnippet
+
