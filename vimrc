@@ -166,7 +166,7 @@
         set showmode        " always show what mode we're currently editing in
         set scrolloff=8     " keep 4 lines off the edges of the screen when scrolling
         set mousehide       " Hide Mouse when typing
-        set linespace=3     " Prefer a slightly higher line height
+        set linespace=2     " Prefer a slightly higher line height
 
         set novisualbell    " don't beep
         set noerrorbells    " don't beep
