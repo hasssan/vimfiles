@@ -77,9 +77,11 @@
     " }
 
     " Powerline {
-        Bundle 'Lokaltog/vim-powerline'
-        let g:Powerline_symbols='fancy'
-        let g:Powerline_colorscheme='solarized256'
+        " Bundle 'Lokaltog/vim-powerline'
+        Bundle 'Lokaltog/powerline'
+        " let g:Powerline_symbols='fancy'
+        " let g:Powerline_colorscheme='solarized256'
+        set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
     " }
 
     " EasyMotion {
