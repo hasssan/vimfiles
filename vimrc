@@ -134,6 +134,7 @@
     Bundle 'tpope/vim-unimpaired'
     Bundle 'tomtom/tcomment_vim'
     Bundle 'matchit.zip'
+    Bundle 'danro/rename.vim'
     " Bundle 'bufexplorer.zip'
 
     " language tool
@@ -184,8 +185,11 @@
     set hidden          " Switch between buffers without saving
     set autoread        " autoread external modification
 
-    set clipboard+=unnamed                  " Add the unnamed register to 
-                                            " the clipboard
+    " Add the unnamed register to the clipboard
+    set clipboard+=unnamed
+
+   "Split windows below the current window.
+    set splitbelow         
 
     " all about Tab {
         set tabstop=4
