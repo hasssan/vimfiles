@@ -36,7 +36,11 @@
 
         let g:UltiSnips = {}
         let g:UltiSnips.UltiSnips_ft_filter = {
-                \ 'default' : {'filetypes': ['FILETYPE'] },
+                \ 'default' : {'filetypes': ["FILETYPE","all"] },
+                \ 'all'     : {'filetypes': ['all']},
+                \ }
+        let g:UltiSnips.snipmate_ft_filter = {
+                \ 'default' : {'filetypes': ["FILETYPE", "_"] },
                 \ }
         let g:UltiSnips.ExpandTrigger="<c-tab>"
         let g:UltiSnips.JumpForwardTrigger="<c-j>"
@@ -135,6 +139,7 @@
     Bundle 'tomtom/tcomment_vim'
     Bundle 'matchit.zip'
     Bundle 'danro/rename.vim'
+    Bundle 'terryma/vim-multiple-cursors'
     " Bundle 'bufexplorer.zip'
 
     " language tool
@@ -144,7 +149,8 @@
     Bundle 'pangloss/vim-javascript'
     Bundle 'itspriddle/vim-jquery'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-    Bundle 'tpope/vim-markdown'
+    " Bundle 'tpope/vim-markdown'
+    Bundle 'plasticboy/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
     Bundle 'vim-scripts/tracwiki'
@@ -344,21 +350,21 @@
 " Custom Functions {
 
 " SetWrap For Markdown {
-    " function! SetWrap()
-    "   setlocal wrap linebreak nolist
-    "   set virtualedit=
-    "   setlocal display+=lastline
-    "   noremap  <buffer> <silent> k gk
-    "   noremap  <buffer> <silent> j gj
-    "   noremap  <buffer> <silent> <Home> g<Home>
-    "   noremap  <buffer> <silent> <End>  g<End>
-    "   inoremap <buffer> <silent> <Up>   <C-o>gk
-    "   inoremap <buffer> <silent> <Down> <C-o>gj
-    "   inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    "   inoremap <buffer> <silent> <End>  <C-o>g<End>
-    " endfunction
+    function! SetWrap()
+      setlocal wrap linebreak nolist
+      set virtualedit=
+      setlocal display+=lastline
+      noremap  <buffer> <silent> k gk
+      noremap  <buffer> <silent> j gj
+      noremap  <buffer> <silent> <Home> g<Home>
+      noremap  <buffer> <silent> <End>  g<End>
+      inoremap <buffer> <silent> <Up>   <C-o>gk
+      inoremap <buffer> <silent> <Down> <C-o>gj
+      inoremap <buffer> <silent> <Home> <C-o>g<Home>
+      inoremap <buffer> <silent> <End>  <C-o>g<End>
+    endfunction
 
-    " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
+    au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
 "}
 
     au BufNewFile,BufRead *.lex setlocal filetype=html
