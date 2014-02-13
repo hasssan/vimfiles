@@ -1,9 +1,11 @@
 " Change colorscheme
-set background=dark
 " let g:solarized_termcolors=256
 " colorscheme solarized
-colorscheme base16-railscasts
+" color codeschool
+set background=dark
+set t_Co=
 
+colorscheme base16-railscasts
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
