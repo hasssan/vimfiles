@@ -23,6 +23,7 @@
     " Let Vundle manage it self {
         Bundle 'gmarik/vundle'
     " }
+    "
 
     " utilsnips {
         Bundle 'tomtom/tlib_vim'
@@ -127,7 +128,6 @@
         "Bundle 'spf13/PIV'
         " let g:DisableAutoPHPFolding = 1 "{"}
     " }
-
     Bundle 'Valloric/YouCompleteMe'
     " command
     Bundle 'tpope/vim-git'
@@ -144,7 +144,7 @@
 
     " language tool
     Bundle 'nathanaelkane/vim-indent-guides'
-    Bundle 'smarty.vim'
+    " Bundle 'smarty.vim'
     " Bundle 'beyondwords/vim-twig'
     Bundle 'pangloss/vim-javascript'
     Bundle 'itspriddle/vim-jquery'
@@ -153,7 +153,7 @@
     Bundle 'plasticboy/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
-    Bundle 'vim-scripts/tracwiki'
+    " Bundle 'vim-scripts/tracwiki'
 
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
