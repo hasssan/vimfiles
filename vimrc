@@ -27,27 +27,13 @@
 
     " utilsnips {
         Bundle 'tomtom/tlib_vim'
-        Bundle 'MarcWeber/ultisnips'
-        " Bundle 'SirVer/ultisnips'
+        " Bundle 'MarcWeber/ultisnips'
+        Bundle 'SirVer/ultisnips'
         Bundle 'honza/vim-snippets'
 
-        " let g:ultisnipsexpandtrigger="<c-tab>"
-        " let g:ultisnipsjumpforwardtrigger="<c-j>"
-        " let g:ultisnipsjumpbackwardtrigger="<c-k>"
-
-        let g:UltiSnips = {}
-        let g:UltiSnips.UltiSnips_ft_filter = {
-                \ 'default' : {'filetypes': ["FILETYPE","all"] },
-                \ 'all'     : {'filetypes': ['all']},
-                \ }
-        let g:UltiSnips.snipmate_ft_filter = {
-                \ 'default' : {'filetypes': ["FILETYPE", "_"] },
-                \ }
-        let g:UltiSnips.ExpandTrigger="<c-tab>"
-        let g:UltiSnips.JumpForwardTrigger="<c-j>"
-        let g:UltiSnips.JumpBackwardTrigger="<c-k>"
-        " let g:UltiSnips.always_use_first_snippet = 1    
-        let g:snips_author = "Hassan Aly"
+        let g:UltiSnipsExpandTrigger="<c-tab>"
+        let g:UltiSnipsJumpForwardTrigger="<c-j>"
+        let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     " }
 
     " Fugitive {
@@ -65,6 +51,7 @@
     " Ctrlp {
         Bundle 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+        let g:ctrlp_extensions = ['buffertag', 'mixed']
     " }
 
     " Syntastic {
@@ -72,6 +59,29 @@
         let g:syntastic_enable_signs=1
         let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
         let g:syntastic_php_checkers=['php']
+
+        " custom jshint conf
+        function s:find_jshintrc(dir)
+            let l:found = globpath(a:dir, '.jshintrc')
+            if filereadable(l:found)
+                return l:found
+            endif
+
+            let l:parent = fnamemodify(a:dir, ':h')
+            if l:parent != a:dir
+                return s:find_jshintrc(l:parent)
+            endif
+
+            return "~/.jshintrc"
+        endfunction
+
+        function UpdateJsHintConf()
+            let l:dir = expand('%:p:h')
+            let l:jshintrc = s:find_jshintrc(l:dir)
+            let g:syntastic_javascript_jshint_conf = l:jshintrc
+        endfunction
+
+        au BufEnter * call UpdateJsHintConf()
     " }
 
     " superTab {
@@ -160,6 +170,7 @@
     Bundle 'godlygeek/tabular'
     Bundle 'gregsexton/gitv'
     Bundle 'sjl/gundo.vim'
+    Bundle 'MarcWeber/vim-addon-local-vimrc'
 " }
 
 " General {
