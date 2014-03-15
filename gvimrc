@@ -3,7 +3,7 @@
 " colorscheme solarized
 " color codeschool
 set background=dark
-set t_Co=
+set t_Co=256
 
 colorscheme base16-railscasts
 highlight clear SignColumn
