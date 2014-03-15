@@ -52,6 +52,7 @@
         Bundle 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
         let g:ctrlp_extensions = ['buffertag', 'mixed']
+        map <C-r> :CtrlPBufTag<cr>
     " }
 
     " Syntastic {
@@ -156,6 +157,7 @@
     Bundle 'nathanaelkane/vim-indent-guides'
     " Bundle 'smarty.vim'
     " Bundle 'beyondwords/vim-twig'
+    Bundle 'evidens/vim-twig'
     Bundle 'pangloss/vim-javascript'
     Bundle 'itspriddle/vim-jquery'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -207,6 +209,16 @@
 
    "Split windows below the current window.
     set splitbelow         
+
+    "Resize vsplit
+    nmap <C-v> :vertical resize +5<cr>
+    nmap 25 :vertical resize 40<cr>
+    nmap 50 <c-w>=
+    nmap 75 :vertical resize 120<cr>
+
+    " Quickly go forward or backward to buffer
+    nmap :bp :BufSurfBack<cr>
+    nmap :bn :BufSurfForward<cr>
 
     " all about Tab {
         set tabstop=4
