@@ -211,7 +211,7 @@
     set splitbelow         
 
     "Resize vsplit
-    nmap <C-v> :vertical resize +5<cr>
+    nmap <C-q> :vertical resize +5<cr>
     nmap 25 :vertical resize 40<cr>
     nmap 50 <c-w>=
     nmap 75 :vertical resize 120<cr>
