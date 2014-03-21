@@ -173,6 +173,8 @@
     Bundle 'gregsexton/gitv'
     Bundle 'sjl/gundo.vim'
     Bundle 'MarcWeber/vim-addon-local-vimrc'
+    Bundle 'noahfrederick/vim-hemisu'
+    Bundle 'chriskempson/base16-vim'
 " }
 
 " General {
