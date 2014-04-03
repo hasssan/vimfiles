@@ -389,10 +389,10 @@
       inoremap <buffer> <silent> <End>  <C-o>g<End>
     endfunction
 
-    au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
+    " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
 "}
 
-    au BufNewFile,BufRead *.lex setlocal filetype=html
+    " au BufNewFile,BufRead *.lex setlocal filetype=html
 
 "}
 
