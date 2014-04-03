@@ -23,11 +23,9 @@
     " Let Vundle manage it self {
         Bundle 'gmarik/vundle'
     " }
-    "
 
     " utilsnips {
         Bundle 'tomtom/tlib_vim'
-        " Bundle 'MarcWeber/ultisnips'
         Bundle 'SirVer/ultisnips'
         Bundle 'honza/vim-snippets'
 
@@ -61,42 +59,10 @@
         let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
         let g:syntastic_php_checkers=['php']
 
-        " custom jshint conf
-"         function s:find_jshintrc(dir)
-"             let l:found = globpath(a:dir, '.jshintrc')
-"             if filereadable(l:found)
-"                 return l:found
-"             endif
-"
-"             let l:parent = fnamemodify(a:dir, ':h')
-"             if l:parent != a:dir
-"                 return s:find_jshintrc(l:parent)
-"             endif
-"
-"             return '~/.jshintrc'
-"         endfunction
-"
-"         function UpdateJsHintConf()
-"             let l:dir = expand('%:p:h')
-"             let l:jshintrc = s:find_jshintrc(l:dir)
-"             let g:syntastic_javascript_jshint_conf = l:jshintrc
-"         endfunction
-"
-"         au BufEnter * call UpdateJsHintConf()
-    " }
-
-    " superTab {
-        " Bundle 'ervandew/supertab'
-        "let g:SuperTabMappingForward = '<C-Space>' 
-        "let g:SuperTabMappingBackward = '<S-C-Space>' 
-        "let g:SuperTabDefaultCompletionType = 'context'
     " }
 
     " Powerline {
-        " Bundle 'Lokaltog/vim-powerline'
         Bundle 'Lokaltog/powerline'
-        " let g:Powerline_symbols='fancy'
-        " let g:Powerline_colorscheme='solarized256'
         set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
     " }
 
@@ -118,16 +84,8 @@
 
     " NERDTree {
         Bundle 'scrooloose/nerdtree'
-        "shortcut for nerdtreetoggle
-        "nmap <F2> :NERDTreeToggle <CR>
-        "Show hidden files in nerdtree
-        "let NERDTreeShowHidden=1
         " Show the Bookmarks        
         let g:NERDTreeShowBookmarks=1 
-
-        "autoopen Nerdtree focus cursor in new document
-        "autocmd VimEnter * NERDTree
-        "autocmd VimEnter * wincmd p
     " }
 
     " Gist Vim {
@@ -135,12 +93,8 @@
         let g:gist_detect_filetype=1
     " }
 
-    " PIV {
-        "Bundle 'spf13/PIV'
-        " let g:DisableAutoPHPFolding = 1 "{"}
-    " }
-    Bundle 'Valloric/YouCompleteMe'
     " command
+    Bundle 'Valloric/YouCompleteMe'
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-surround'
     Bundle 'delimitMate.vim'
@@ -151,7 +105,6 @@
     Bundle 'matchit.zip'
     Bundle 'danro/rename.vim'
     Bundle 'terryma/vim-multiple-cursors'
-    " Bundle 'bufexplorer.zip'
 
     " language tool
     Bundle 'nathanaelkane/vim-indent-guides'
@@ -165,7 +118,6 @@
     Bundle 'plasticboy/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
-    " Bundle 'vim-scripts/tracwiki'
 
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
@@ -173,7 +125,6 @@
     Bundle 'gregsexton/gitv'
     Bundle 'sjl/gundo.vim'
     Bundle 'MarcWeber/vim-addon-local-vimrc'
-    Bundle 'noahfrederick/vim-hemisu'
     Bundle 'chriskempson/base16-vim'
 " }
 
@@ -311,11 +262,6 @@
     " Wipe out all buffers
     nmap <silent> ,wba :l,9000bwipeout<cr>
 
-    " Toggle paste mode
-    " nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
-    " imap <F5> <C-O><F5>
-    " set pastetoggle=<F5>
-
     " Yank and Paste key to/from X clipboard
     map <F9> "+gP 
     vnoremap <C-F9> "+y
@@ -374,25 +320,23 @@
 
 " Custom Functions {
 
-" SetWrap For Markdown {
-    function! SetWrap()
-      setlocal wrap linebreak nolist
-      set virtualedit=
-      setlocal display+=lastline
-      noremap  <buffer> <silent> k gk
-      noremap  <buffer> <silent> j gj
-      noremap  <buffer> <silent> <Home> g<Home>
-      noremap  <buffer> <silent> <End>  g<End>
-      inoremap <buffer> <silent> <Up>   <C-o>gk
-      inoremap <buffer> <silent> <Down> <C-o>gj
-      inoremap <buffer> <silent> <Home> <C-o>g<Home>
-      inoremap <buffer> <silent> <End>  <C-o>g<End>
-    endfunction
+    " SetWrap For Markdown {
+        function! SetWrap()
+          setlocal wrap linebreak nolist
+          set virtualedit=
+          setlocal display+=lastline
+          noremap  <buffer> <silent> k gk
+          noremap  <buffer> <silent> j gj
+          noremap  <buffer> <silent> <Home> g<Home>
+          noremap  <buffer> <silent> <End>  g<End>
+          inoremap <buffer> <silent> <Up>   <C-o>gk
+          inoremap <buffer> <silent> <Down> <C-o>gj
+          inoremap <buffer> <silent> <Home> <C-o>g<Home>
+          inoremap <buffer> <silent> <End>  <C-o>g<End>
+        endfunction
 
-    " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
-"}
-
-    " au BufNewFile,BufRead *.lex setlocal filetype=html
+        " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
+    "}
 
 "}
 
@@ -408,17 +352,6 @@
 
     " Toggle switch background light or dark
     map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-" }
-
-" Switch between Relative and Absolute line number {
-    "function! g:ToggleNuMode()
-        "if(&rnu == 1)
-            "set nu
-        "else
-            "set rnu
-        "endif
-    "endfunc
-    "nnoremap ,c :call g:ToggleNuMode()<cr>
 " }
 
 " NERDCommenter {
