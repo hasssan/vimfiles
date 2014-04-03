@@ -1,5 +1,5 @@
+" Hassan Aly's vimrc
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
-" My Vim Configuration
 " Environment {
     " use vim default settings
     " This has to be first because it changes how some other options works. 
@@ -105,6 +105,8 @@
     Bundle 'matchit.zip'
     Bundle 'danro/rename.vim'
     Bundle 'terryma/vim-multiple-cursors'
+    Bundle 'tpope/vim-eunuch'
+    Bundle 'tpope/vim-commentary'
 
     " language tool
     Bundle 'nathanaelkane/vim-indent-guides'
@@ -118,6 +120,8 @@
     Bundle 'plasticboy/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
+    Bundle 'vim-ruby/vim-ruby'
+    Bundle 'tpope/vim-endwise'
 
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
@@ -372,6 +376,8 @@
     nnoremap <leader>ef :OpenSession<CR>
 " }
 
-" Private source {
-    source ~/.vim/local.setting
+" Private setting {
+    if filereadable($HOME.'/.vim/local.setting')
+        source ~/.vim/local.setting
+    endif
 " }
