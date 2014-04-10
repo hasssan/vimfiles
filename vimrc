@@ -137,6 +137,8 @@
     filetype plugin indent on       " filetype detection on Required!
     syntax on                       " Syntax highlight
 
+    colorscheme base16-ocean
+
     " Visual and Motion {
         set ruler           " Display current cursor position on lower right corner
         set showmatch       " set show matching parenthesis
@@ -346,16 +348,16 @@
 
 " Solarized Color {
     Bundle 'altercation/vim-colors-solarized'
-    " Set 256 color
-    set t_Co=256
-
-    " setting for colorscheme
-    set background=dark
-    let g:solarized_termcolors=16
-    colorscheme solarized
-
-    " Toggle switch background light or dark
-    map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+    " " Set 256 color
+    " set t_Co=256
+    "
+    " " setting for colorscheme
+     set background=dark
+    " let g:solarized_termcolors=16
+    " colorscheme solarized
+    "
+    " " Toggle switch background light or dark
+    " map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 " }
 
 " NERDCommenter {
@@ -381,3 +383,4 @@
         source ~/.vim/local.setting
     endif
 " }
+
