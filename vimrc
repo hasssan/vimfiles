@@ -123,6 +123,9 @@
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
 
+    " reStructuredText support
+    Bundle 'Rykka/riv.vim'
+
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'godlygeek/tabular'
