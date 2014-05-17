@@ -122,6 +122,7 @@
     Bundle 'einars/vim-phpfold'
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
+    Bundle 'mustache/vim-mustache-handlebars'
 
     " reStructuredText support
     Bundle 'Rykka/riv.vim'
@@ -130,9 +131,10 @@
     Bundle 'majutsushi/tagbar'
     Bundle 'godlygeek/tabular'
     Bundle 'gregsexton/gitv'
-    Bundle 'sjl/gundo.vim'
     Bundle 'MarcWeber/vim-addon-local-vimrc'
     Bundle 'chriskempson/base16-vim'
+
+    Bundle 'sjl/gundo.vim'
 " }
 
 " General {
@@ -321,6 +323,7 @@
     nnoremap <f2> :NERDTreeToggle<cr>
     nnoremap <f3> :BuffergatorToggle<cr>
     nnoremap <f4> :TagbarToggle<cr>
+    nnoremap <f5> :GundoToggle<cr>
 
     " easier moving blocks of code
     vnoremap < <gv
