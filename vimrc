@@ -92,6 +92,11 @@
         Bundle 'mattn/gist-vim'
         let g:gist_detect_filetype=1
     " }
+    
+    " Vim json {
+        Bundle 'elzr/vim-json'
+        let g:vim_json_syntax_conceal=0
+    "}
 
     " command
     Bundle 'Valloric/YouCompleteMe'
@@ -137,11 +142,14 @@
     Bundle 'sjl/gundo.vim'
 " }
 
+
 " General {
     
     filetype plugin indent on       " filetype detection on Required!
     syntax on                       " Syntax highlight
 
+    " set t_Co=256
+    " set background=dark
     colorscheme base16-ocean
 
     " Visual and Motion {
@@ -355,15 +363,13 @@
 " Solarized Color {
     Bundle 'altercation/vim-colors-solarized'
     " " Set 256 color
-    " set t_Co=256
     "
     " " setting for colorscheme
-     set background=dark
     " let g:solarized_termcolors=16
     " colorscheme solarized
     "
     " " Toggle switch background light or dark
-    " map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+    " map <F6> :let &background = ( &background == 'dark'? 'light' : 'dark' )<CR> 
 " }
 
 " NERDCommenter {
