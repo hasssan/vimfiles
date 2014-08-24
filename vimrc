@@ -61,10 +61,6 @@
 
     " }
 
-    " Powerline {
-        Bundle 'Lokaltog/powerline'
-        set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-    " }
 
     " EasyMotion {
         Bundle 'Lokaltog/vim-easymotion'
@@ -141,7 +137,6 @@
 
     Bundle 'sjl/gundo.vim'
 " }
-
 
 " General {
     
@@ -390,9 +385,14 @@
     nnoremap <leader>ef :OpenSession<CR>
 " }
 
+" Powerline {
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+" }
+
 " Private setting {
     if filereadable($HOME.'/.vim/local.setting')
         source ~/.vim/local.setting
     endif
 " }
-
