@@ -124,6 +124,7 @@
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
     Bundle 'mustache/vim-mustache-handlebars'
+    Bundle 'mxw/vim-jsx'
 
     " reStructuredText support
     Bundle 'Rykka/riv.vim'
