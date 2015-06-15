@@ -103,7 +103,7 @@
     Bundle 'netrw.vim'
     Bundle 'tpope/vim-unimpaired'
     Bundle 'tomtom/tcomment_vim'
-    Bundle 'matchit.zip'
+    Bundle 'vim-scripts/matchit.zip'
     Bundle 'danro/rename.vim'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tpope/vim-eunuch'
@@ -118,22 +118,23 @@
     Bundle 'itspriddle/vim-jquery'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
     " Bundle 'tpope/vim-markdown'
-    Bundle 'plasticboy/vim-markdown'
+    Bundle 'godlygeek/tabular'
+    " Bundle 'plasticboy/vim-markdown'
     Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
     Bundle 'vim-ruby/vim-ruby'
+    Bundle 'slim-template/vim-slim'
     Bundle 'tpope/vim-endwise'
     Bundle 'mustache/vim-mustache-handlebars'
     Bundle 'mxw/vim-jsx'
 
     " reStructuredText support
-    Bundle 'Rykka/riv.vim'
+    " Bundle 'Rykka/riv.vim'
 
     Bundle 'mileszs/ack.vim'
     Bundle 'majutsushi/tagbar'
-    Bundle 'godlygeek/tabular'
     Bundle 'gregsexton/gitv'
-    Bundle 'MarcWeber/vim-addon-local-vimrc'
+    " Bundle 'MarcWeber/vim-addon-local-vimrc'
     Bundle 'chriskempson/base16-vim'
 
     Bundle 'sjl/gundo.vim'
@@ -279,7 +280,7 @@
 
     " Yank and Paste key to/from X clipboard
     map <F9> "+gP 
-    vnoremap <C-F9> "+y
+    vmap <C-F9> "+y
 
     " Turn off that stupid highlight search
     nmap <silent> ,n :nohls<CR>
@@ -298,6 +299,7 @@
     " edit the vimrc file
     nmap <silent> ,ev :e $MYVIMRC<CR>
     nmap <silent> ,sv :so $MYVIMRC<CR>
+
 
     " change that annoying shift+; for all Vim Commands
     nnoremap ; :
@@ -354,6 +356,10 @@
         " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
     "}
 
+"}
+" vim-markdown {
+" let g:vim_markdown_folding_disabled=1
+" let g:vim_markdown_frontmatter=1
 "}
 
 " Solarized Color {
