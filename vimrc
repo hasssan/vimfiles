@@ -58,7 +58,7 @@
         let g:syntastic_enable_signs=1
         let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
         let g:syntastic_php_checkers=['php']
-
+        let g:syntastic_javascript_checkers = ['eslint']
     " }
 
 
@@ -113,20 +113,19 @@
     Bundle 'nathanaelkane/vim-indent-guides'
     " Bundle 'smarty.vim'
     " Bundle 'beyondwords/vim-twig'
-    Bundle 'evidens/vim-twig'
+    " Bundle 'evidens/vim-twig'
     Bundle 'pangloss/vim-javascript'
-    Bundle 'itspriddle/vim-jquery'
+    " Bundle 'itspriddle/vim-jquery'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
     " Bundle 'tpope/vim-markdown'
     Bundle 'godlygeek/tabular'
     " Bundle 'plasticboy/vim-markdown'
-    Bundle 'tpope/vim-haml'
+    " Bundle 'tpope/vim-haml'
     Bundle 'einars/vim-phpfold'
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'slim-template/vim-slim'
-    Bundle 'tpope/vim-endwise'
-    Bundle 'mustache/vim-mustache-handlebars'
-    Bundle 'mxw/vim-jsx'
+    " Bundle 'vim-ruby/vim-ruby'
+    " Bundle 'slim-template/vim-slim'
+    " Bundle 'tpope/vim-endwise'
+    " Bundle 'mustache/vim-mustache-handlebars'
 
     " reStructuredText support
     " Bundle 'Rykka/riv.vim'
@@ -362,6 +361,11 @@
 " let g:vim_markdown_frontmatter=1
 "}
 
+" JSX support {
+    Bundle 'mxw/vim-jsx'
+    " let g:jsx_ext_required = 0
+"}
+"
 " Solarized Color {
     Bundle 'altercation/vim-colors-solarized'
     " " Set 256 color

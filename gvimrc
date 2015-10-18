@@ -5,7 +5,7 @@
 set background=dark
 set t_Co=256
 
-colorscheme base16-railscasts
+colorscheme base16-twilight
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
@@ -22,7 +22,7 @@ highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
 
 " set font
-set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+set guifont=Inconsolata\ for\ Powerline\ Medium\ 14
 set linespace=0
 " remove visual bell that cause flickering on motion
 set vb t_vb=
