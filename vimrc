@@ -47,7 +47,7 @@
     " }
 
     " Ctrlp {
-        Bundle 'kien/ctrlp.vim'
+        Bundle 'ctrlpvim/ctrlp.vim'
         let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
         let g:ctrlp_extensions = ['buffertag', 'mixed']
         map <C-r> :CtrlPBufTag<cr>
@@ -137,6 +137,7 @@
     Bundle 'chriskempson/base16-vim'
 
     Bundle 'sjl/gundo.vim'
+    Plugin 'editorconfig/editorconfig-vim'
 " }
 
 " General {
@@ -360,6 +361,8 @@
 " let g:vim_markdown_folding_disabled=1
 " let g:vim_markdown_frontmatter=1
 "}
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " JSX support {
     Bundle 'mxw/vim-jsx'
