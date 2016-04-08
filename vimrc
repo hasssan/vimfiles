@@ -1,155 +1,89 @@
 " Hassan Aly's vimrc
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
-" Environment {
-    " use vim default settings
-    " This has to be first because it changes how some other options works. 
+" use vim default settings
+" This has to be first because it changes how some other options works. 
     set nocompatible
 
-    "this is for vundle
+"this is for vundle
     filetype off
 
-    " start Vundle {
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
-    " }
-    
-    " Map Leader {
-        let mapleader = ","
-    " }
-" }
+" start Vundle 
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-" Bundles {
-" List all Bundle
-    " Let Vundle manage it self {
-        Bundle 'gmarik/vundle'
-    " }
+" Map Leader 
+    let mapleader = ","
 
-    " utilsnips {
-        Bundle 'tomtom/tlib_vim'
-        Bundle 'SirVer/ultisnips'
-        Bundle 'honza/vim-snippets'
+" Plugins List all Plugin
+Plugin 'VundleVim/Vundle.vim'   " Let Vundle manage it self 
 
-        let g:UltiSnipsExpandTrigger="<c-tab>"
-        let g:UltiSnipsJumpForwardTrigger="<c-j>"
-        let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-    " }
+"Plugin 'tomtom/tlib_vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
+Plugin 'YankRing.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/gist-vim'
+Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
+Plugin 'delimitMate.vim'
+Plugin 'taglist.vim'
+Plugin 'netrw.vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'danro/rename.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-commentary'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plugin 'godlygeek/tabular'
+Plugin 'einars/vim-phpfold'
+Plugin 'mileszs/ack.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'gregsexton/gitv'
+Plugin 'chriskempson/base16-vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+" Plugin 'smarty.vim'
+" Plugin 'beyondwords/vim-twig'
+" Plugin 'evidens/vim-twig'
+" Plugin 'itspriddle/vim-jquery'
+" Plugin 'tpope/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'tpope/vim-haml'
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'slim-template/vim-slim'
+" Plugin 'tpope/vim-endwise'
+" Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'Rykka/riv.vim'
+" Plugin 'MarcWeber/vim-addon-local-vimrc'
 
-    " Fugitive {
-        Bundle 'tpope/vim-fugitive'
-        cmap gcim Gcommit -m 
-        cmap gst Gstatus
-        cmap gwr Gwrite
-    " }
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+syntax on                       " Syntax highlight
 
-    " Yankring {
-        Bundle 'YankRing.vim'
-        nnoremap <silent> <f1> :YRShow<CR>
-    " }
-
-    " Ctrlp {
-        Bundle 'ctrlpvim/ctrlp.vim'
-        let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-        let g:ctrlp_extensions = ['buffertag', 'mixed']
-        map <C-r> :CtrlPBufTag<cr>
-    " }
-
-    " Syntastic {
-        Bundle 'scrooloose/syntastic'
-        let g:syntastic_enable_signs=1
-        let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-        let g:syntastic_php_checkers=['php']
-        let g:syntastic_javascript_checkers = ['eslint']
-    " }
-
-
-    " EasyMotion {
-        Bundle 'Lokaltog/vim-easymotion'
-        let g:EasyMotion_leader_key = '<leader>m'
-    " }
-
-    " Buffergator {
-        Bundle 'jeetsukumaran/vim-buffergator'
-        let g:buffergator_viewport_split_policy = "B"
-        let g:buffergator_split_size = 10
-        let g:buffergator_autoexpand_on_split = 0
-    " }
-
-    " emmet {
-        Bundle 'mattn/emmet-vim'
-    " }
-
-    " NERDTree {
-        Bundle 'scrooloose/nerdtree'
-        " Show the Bookmarks        
-        let g:NERDTreeShowBookmarks=1 
-    " }
-
-    " Gist Vim {
-        Bundle 'mattn/gist-vim'
-        let g:gist_detect_filetype=1
-    " }
-    
-    " Vim json {
-        Bundle 'elzr/vim-json'
-        let g:vim_json_syntax_conceal=0
-    "}
-
-    " command
-    Bundle 'Valloric/YouCompleteMe'
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-surround'
-    Bundle 'delimitMate.vim'
-    Bundle 'taglist.vim'
-    Bundle 'netrw.vim'
-    Bundle 'tpope/vim-unimpaired'
-    Bundle 'tomtom/tcomment_vim'
-    Bundle 'vim-scripts/matchit.zip'
-    Bundle 'danro/rename.vim'
-    Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'tpope/vim-eunuch'
-    Bundle 'tpope/vim-commentary'
-
-    " language tool
-    Bundle 'nathanaelkane/vim-indent-guides'
-    " Bundle 'smarty.vim'
-    " Bundle 'beyondwords/vim-twig'
-    " Bundle 'evidens/vim-twig'
-    Bundle 'pangloss/vim-javascript'
-    " Bundle 'itspriddle/vim-jquery'
-    Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-    " Bundle 'tpope/vim-markdown'
-    Bundle 'godlygeek/tabular'
-    " Bundle 'plasticboy/vim-markdown'
-    " Bundle 'tpope/vim-haml'
-    Bundle 'einars/vim-phpfold'
-    " Bundle 'vim-ruby/vim-ruby'
-    " Bundle 'slim-template/vim-slim'
-    " Bundle 'tpope/vim-endwise'
-    " Bundle 'mustache/vim-mustache-handlebars'
-
-    " reStructuredText support
-    " Bundle 'Rykka/riv.vim'
-
-    Bundle 'mileszs/ack.vim'
-    Bundle 'majutsushi/tagbar'
-    Bundle 'gregsexton/gitv'
-    " Bundle 'MarcWeber/vim-addon-local-vimrc'
-    Bundle 'chriskempson/base16-vim'
-
-    Bundle 'sjl/gundo.vim'
-    Plugin 'editorconfig/editorconfig-vim'
-" }
-
-" General {
-    
-    filetype plugin indent on       " filetype detection on Required!
-    syntax on                       " Syntax highlight
+" General 
 
     " set t_Co=256
     " set background=dark
     colorscheme base16-ocean
 
-    " Visual and Motion {
+    " Visual and Motion 
         set ruler           " Display current cursor position on lower right corner
         set showmatch       " set show matching parenthesis
         set number          " Show lines numbers
@@ -167,7 +101,6 @@
 
         set backspace=indent,eol,start      " Allow backspacing in insert mode
         set virtualedit=all " allow the cursor to go in to 'invalid' places
-    " }
 
     set timeoutlen=500  " Lower timeout leader key + command
     set hidden          " Switch between buffers without saving
@@ -176,7 +109,7 @@
     " Add the unnamed register to the clipboard
     set clipboard+=unnamed
 
-   "Split windows below the current window.
+    "Split windows below the current window.
     set splitbelow         
 
     "Resize vsplit
@@ -189,86 +122,77 @@
     nmap :bp :BufSurfBack<cr>
     nmap :bn :BufSurfForward<cr>
 
-    " all about Tab {
-        set tabstop=4
-        set shiftwidth=4
-        set softtabstop=4
-        set expandtab
-        set autoindent      " Autoindenting on
-        set copyindent      " copy the previous indentation on auto indenting
-        set smarttab        " Insert tabs on the start of a line accroding to 
-                            "   shiftwidth, not tabstop
-    " }
+    " all about Tab 
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
+    set autoindent      " Autoindenting on
+    set copyindent      " copy the previous indentation on auto indenting
+    set smarttab        " Insert tabs on the start of a line accroding to 
+                        "   shiftwidth, not tabstop
 
-    " Search and menu {
-        set wildmenu                            " More useful command-line completion
-        set wildmode=list:longest,full          " Auto-completion menu, tab selection
-        " set wildignorecase                      " Make it easier to complete buffers, 
-                                                  " open files, etc..
-        set complete=.,w,b,t                    " Same as default
-        " set completeopt=longest,menu,preview
-        
-        set wrapscan        " set the search scan to wrap lines
-        set incsearch       " show search matches as you type                 
-        set hlsearch        " Highlight searching                             
-        set ignorecase      " ignore case when searching                      
-        set smartcase       " Ignore case if search pattern is all lowercase, 
-                            " case-sensitive otherwise                      
-        set showfulltag     " When completing by tag, show the whole tag,     
-                            " not just the function name                    
-    " }
+    " Search and menu 
+    set wildmenu                            " More useful command-line completion
+    set wildmode=list:longest,full          " Auto-completion menu, tab selection
+    " set wildignorecase                      " Make it easier to complete buffers, 
+                                              " open files, etc..
+    set complete=.,w,b,t                    " Same as default
+    " set completeopt=longest,menu,preview
     
-    " No backup and swap {
-        set nobackup
-        set noswapfile
-    " }
+    set wrapscan        " set the search scan to wrap lines
+    set incsearch       " show search matches as you type                 
+    set hlsearch        " Highlight searching                             
+    set ignorecase      " ignore case when searching                      
+    set smartcase       " Ignore case if search pattern is all lowercase, 
+                        " case-sensitive otherwise                      
+    set showfulltag     " When completing by tag, show the whole tag,     
+                        " not just the function name                    
+    
+    " No backup and swap 
+    set nobackup
+    set noswapfile
 
-    " Nice Statusbar {
-        set laststatus=2                        " Always show the status line
-        set statusline=                         
-        set statusline+=%<\                     " truncation point
-        set statusline+=%n\                     " buffer number
-        set statusline+=%y\                     " Filetype
-        set statusline+=%f\                     " filename
-        set statusline+=%h%m%r%w                " flags
-        set statusline+=[%{&ff}]                " file format
-        set statusline+=%{fugitive#statusline()}  " for vim-fugitive statusline
-        set statusline+=%=                      " align right
-        set statusline+=%#error#              " start sytastic
-        set statusline+=%{SyntasticStatuslineFlag()}  " sytastic show error
-        set statusline+=%*                      " end syntastic
-        "set statusline+=%{strftime(\"%c\",getftime(expand(\"%:p\")))}  "modified time
-        set statusline+=%4l                     " line number
-        set statusline+=/%L                     " total lines
-        set statusline+=%3c%V                   " column number
-    " }
+    " Nice Statusbar 
+    set laststatus=2                        " Always show the status line
+    set statusline=                         
+    set statusline+=%<\                     " truncation point
+    set statusline+=%n\                     " buffer number
+    set statusline+=%y\                     " Filetype
+    set statusline+=%f\                     " filename
+    set statusline+=%h%m%r%w                " flags
+    set statusline+=[%{&ff}]                " file format
+    set statusline+=%{fugitive#statusline()}  " for vim-fugitive statusline
+    set statusline+=%=                      " align right
+    set statusline+=%#error#              " start sytastic
+    set statusline+=%{SyntasticStatuslineFlag()}  " sytastic show error
+    set statusline+=%*                      " end syntastic
+    "set statusline+=%{strftime(\"%c\",getftime(expand(\"%:p\")))}  "modified time
+    set statusline+=%4l                     " line number
+    set statusline+=/%L                     " total lines
+    set statusline+=%3c%V                   " column number
 
-    " History {
-        set history=1000                         " keep some stuff in the history
-        set undolevels=1000                     " many, many, undo
-        if v:version >= 730
-          set undofile                          " keep a presistent backup file
-          set undodir=~/.vim/.undo,~/tmp,/tmp
-        endif
-    " }
+    " History 
+    set history=1000                         " keep some stuff in the history
+    set undolevels=1000                     " many, many, undo
+    if v:version >= 730
+      set undofile                          " keep a presistent backup file
+      set undodir=~/.vim/.undo,~/tmp,/tmp
+    endif
 
-    " Better line wrapping {
-        set nowrap
-        set textwidth=80
-        set formatoptions=qrnl
-    " }
+    " Better line wrapping 
+    set nowrap
+    set textwidth=80
+    set formatoptions=qrnl
                                             
-    " fold settings {
-        " source http://smartic.us/2009/04/06/code-folding-in-vim/
-        " set foldmethod=marker                 " fold based on indent
-        " set foldnestmax=3                     " deepest fold is 3 levels
-        " set nofoldenable                      " dont fold by default
-        " set foldcolumn=2                      " add fold column
-    " }
+    " Fold settings 
+    " source http://smartic.us/2009/04/06/code-folding-in-vim/
+    " set foldmethod=marker                 " fold based on indent
+    " set foldnestmax=3                     " deepest fold is 3 levels
+    " set nofoldenable                      " dont fold by default
+    " set foldcolumn=2                      " add fold column
 
-" }
-
-" Mapping {
+" Mapping 
     " Save vim with sudo
     cmap w!! w !sudo tee  > /dev/null %
 
@@ -334,43 +258,80 @@
     " easier moving blocks of code
     vnoremap < <gv
     vnoremap > >gv
-" }
 
-" Custom Functions {
+" Custom Functions 
 
-    " SetWrap For Markdown {
-        function! SetWrap()
-          setlocal wrap linebreak nolist
-          set virtualedit=
-          setlocal display+=lastline
-          noremap  <buffer> <silent> k gk
-          noremap  <buffer> <silent> j gj
-          noremap  <buffer> <silent> <Home> g<Home>
-          noremap  <buffer> <silent> <End>  g<End>
-          inoremap <buffer> <silent> <Up>   <C-o>gk
-          inoremap <buffer> <silent> <Down> <C-o>gj
-          inoremap <buffer> <silent> <Home> <C-o>g<Home>
-          inoremap <buffer> <silent> <End>  <C-o>g<End>
-        endfunction
+" SetWrap For Markdown 
+    function! SetWrap()
+      setlocal wrap linebreak nolist
+      set virtualedit=
+      setlocal display+=lastline
+      noremap  <buffer> <silent> k gk
+      noremap  <buffer> <silent> j gj
+      noremap  <buffer> <silent> <Home> g<Home>
+      noremap  <buffer> <silent> <End>  g<End>
+      inoremap <buffer> <silent> <Up>   <C-o>gk
+      inoremap <buffer> <silent> <Down> <C-o>gj
+      inoremap <buffer> <silent> <Home> <C-o>g<Home>
+      inoremap <buffer> <silent> <End>  <C-o>g<End>
+    endfunction
 
-        " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
-    "}
+    " au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn call SetWrap()
 
-"}
+""" Plugin Setting
+        
 " vim-markdown {
 " let g:vim_markdown_folding_disabled=1
 " let g:vim_markdown_frontmatter=1
 "}
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+" EditorConfig
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*']  
+" Utilsnips 
+    let g:UltiSnipsExpandTrigger="<C-tab>"
+    let g:UltiSnipsJumpForwardTrigger="<C-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+" Fugitive 
+    cmap gcim Gcommit -m 
+    cmap gst Gstatus
+    cmap gwr Gwrite
 
-" JSX support {
-    Bundle 'mxw/vim-jsx'
+" Yankring 
+    nnoremap <silent> <f1> :YRShow<CR>
+
+" Ctrlp 
+    let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+    let g:ctrlp_extensions = ['buffertag', 'mixed']
+    map <C-r> :CtrlPBufTag<cr>
+
+" Syntastic 
+    let g:syntastic_enable_signs=1
+    let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+    let g:syntastic_php_checkers=['php']
+    let g:syntastic_javascript_checkers = ['eslint']
+
+" EasyMotion 
+    let g:EasyMotion_leader_key = '<leader>m'
+
+" Buffergator 
+    let g:buffergator_viewport_split_policy = "B"
+    let g:buffergator_split_size = 10
+    let g:buffergator_autoexpand_on_split = 0
+
+" NERDTree 
+    let g:NERDTreeShowBookmarks=1 " Show the Bookmarks        
+
+" Gist Vim 
+    let g:gist_detect_filetype=1
+
+" Vim json 
+    let g:vim_json_syntax_conceal=0
+
+
+" JSX support 
     " let g:jsx_ext_required = 0
-"}
-"
-" Solarized Color {
-    Bundle 'altercation/vim-colors-solarized'
+
+" Solarized Color 
     " " Set 256 color
     "
     " " setting for colorscheme
@@ -379,34 +340,26 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
     "
     " " Toggle switch background light or dark
     " map <F6> :let &background = ( &background == 'dark'? 'light' : 'dark' )<CR> 
-" }
 
-" NERDCommenter {
-    Bundle 'scrooloose/nerdcommenter'
+" NERDCommenter 
     map <leader>/ <Plug>NERDCommenterToggle
     imap <C-/> <Esc><Plug>NERDCommenterToggle<CR>i
-" }
 
-" Session Manager {
+" Session Manager 
     " load Session Manager Dependencies"
-    Bundle 'xolox/vim-misc'
-    Bundle 'xolox/vim-session'
     set sessionoptions-=options
     set sessionoptions+=resize
     let g:session_directory="~/.vimsession"
     let g:session_autoload="no"
     let g:session_autosave="no"
     nnoremap <leader>ef :OpenSession<CR>
-" }
 
-" Powerline {
+" Powerline 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-" }
 
-" Private setting {
-    if filereadable($HOME.'/.vim/local.setting')
-        source ~/.vim/local.setting
-    endif
-" }
+" Private setting 
+if filereadable($HOME.'/.vim/local.setting')
+    source ~/.vim/local.setting
+endif
