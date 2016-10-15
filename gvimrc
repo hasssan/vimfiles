@@ -5,7 +5,7 @@
 set background=dark
 set t_Co=256
 
-colorscheme atom-dark-256
+colorscheme dracula
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
@@ -23,7 +23,7 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 
 " set font
 set guifont=Hack\ 12
-set linespace=0
+set linespace=4
 " remove visual bell that cause flickering on motion
 set vb t_vb=
 
