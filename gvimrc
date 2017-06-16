@@ -1,7 +1,3 @@
-" Change colorscheme
-" let g:solarized_termcolors=256
-" colorscheme solarized
-" color codeschool
 set background=dark
 set t_Co=256
 
@@ -22,7 +18,7 @@ highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
 
 " set font
-set guifont=Hack\ 12
+set guifont=Hack\ 10
 set linespace=4
 " remove visual bell that cause flickering on motion
 set vb t_vb=

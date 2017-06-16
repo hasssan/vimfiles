@@ -50,10 +50,9 @@ Plugin 'einars/vim-phpfold'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'gregsexton/gitv'
-Plugin 'chriskempson/base16-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'dracula/vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
@@ -83,9 +82,12 @@ syntax on                       " Syntax highlight
 
 " General 
 
-    " set t_Co=256
-    " set background=dark
-    colorscheme base16-ocean
+    " Base16 config
+    "if filereadable(expand("~/.vimrc_background"))
+    "  let base16colorspace=256
+    "  source ~/.vimrc_background
+    "endif
+    colorscheme dracula
 
     " Visual and Motion 
         set ruler           " Display current cursor position on lower right corner
@@ -359,9 +361,9 @@ syntax on                       " Syntax highlight
     nnoremap <leader>ef :OpenSession<CR>
 
 " Powerline 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 " Private setting 
 if filereadable($HOME.'/.vim/local.setting')
